@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Что ты делаешь, когда заряд на телефоне — 1%?",
+    "background": "assets/bg_charge.jpg",
+    "options": [
+      "assets/option_run.png",
+      "assets/option_pray.png",
+      "assets/option_ignore.png"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Как выглядит человек, который пообещал себе лечь спать в 23:00?",
+    "background": "assets/bg_sleep.jpg",
+    "options": [
+      "assets/option_sleep_memes.png",
+      "assets/option_sleep_scroll.png",
+      "assets/option_sleep_real.png"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что делает взрослый человек, когда включил стирку?",
+    "background": "assets/bg_laundry.jpg",
+    "options": [
+      "assets/option_wait_machine.png",
+      "assets/option_forget_machine.png",
+      "assets/option_supervise_machine.png"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Как выглядит 'ещё одна серия и спать' в реальности?",
+    "background": "assets/bg_series.jpg",
+    "options": [
+      "assets/option_sleep3am.png",
+      "assets/option_sleepnormal.png",
+      "assets/option_sleepnever.png"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что делает человек, который решил 'начать новую жизнь с понедельника'?",
+    "background": "assets/bg_monday.jpg",
+    "options": [
+      "assets/option_sport.png",
+      "assets/option_pizza.png",
+      "assets/option_plan.png"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что происходит, когда человек услышал слово “скидки”?",
+    "background": "assets/bg_sale.jpg",
+    "options": [
+      "assets/option_runfast.png",
+      "assets/option_think.png",
+      "assets/option_emptywallet.png"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Как выглядит человек, который заставил себя пойти в спортзал?",
+    "background": "assets/bg_gym.jpg",
+    "options": [
+      "assets/option_superhero.png",
+      "assets/option_deadinside.png",
+      "assets/option_confused.png"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой рисунок точно о тебе, когда ты смотришь меню доставки?",
+    "background": "assets/bg_delivery.jpg",
+    "options": [
+      "assets/option_bigmeal.png",
+      "assets/option_salad_fake.png",
+      "assets/option_sadwallet.png"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что происходит, когда решил 'проверить один мемчик'?",
+    "background": "assets/bg_memes.jpg",
+    "options": [
+      "assets/option_scroll_endless.png",
+      "assets/option_scroll_short.png",
+      "assets/option_close_phone.png"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что делает взрослый человек, когда услышал странный звук в квартире?",
+    "background": "assets/bg_sus.jpg",
+    "options": [
+      "assets/option_detective.png",
+      "assets/option_scared_cat.png",
+      "assets/option_ignore_sound.png"
+    ],
+    "correctIndex": 2
+  }
+]
