@@ -1,10 +1,17 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(const QuizApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  runApp(const QuizApp());
+}
 
 class QuizApp extends StatelessWidget {
   const QuizApp({super.key});
+
   @override
   Widget build(BuildContext context) => MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -19,12 +26,14 @@ class QuizQuestion {
   final String background;
   final List<String> options;
   final int correctIndex;
+
   QuizQuestion({
     required this.question,
     required this.background,
     required this.options,
     required this.correctIndex,
   });
+
   factory QuizQuestion.fromJson(Map<String, dynamic> json) => QuizQuestion(
     question: json['question'],
     background: json['background'],
@@ -35,6 +44,7 @@ class QuizQuestion {
 
 class QuizLoaderPage extends StatefulWidget {
   const QuizLoaderPage({super.key});
+
   @override
   State<QuizLoaderPage> createState() => _QuizLoaderPageState();
 }
@@ -71,65 +81,154 @@ class _QuizLoaderPageState extends State<QuizLoaderPage> {
 class QuizPage extends StatefulWidget {
   final List<QuizQuestion> questions;
   const QuizPage({super.key, required this.questions});
+
   @override
   State<QuizPage> createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
-  int index = 0;
-  int score = 0;
+  int? index;
+  int? score;
+  int? selectedOption;
+  Color? selectedColor;
+  bool _isProcessing = false; // Защита от быстрых тапов
+
+  @override
+  void initState() {
+    super.initState();
+    _loadProgress();
+  }
+
+  Future<void> _loadProgress() async {
+    final prefs = await SharedPreferences.getInstance();
+    int savedIndex = prefs.getInt('quiz_index') ?? 0;
+    int savedScore = prefs.getInt('quiz_score') ?? 0;
+
+    if (savedIndex >= widget.questions.length) {
+      savedIndex = 0;
+      savedScore = 0;
+      await prefs.setInt('quiz_index', 0);
+      await prefs.setInt('quiz_score', 0);
+    }
+
+    if (mounted) {
+      setState(() {
+        index = savedIndex;
+        score = savedScore;
+        selectedOption = null;
+        selectedColor = null;
+        _isProcessing = false;
+      });
+    }
+  }
+
+  Future<void> _saveProgress() async {
+    if (index != null && score != null) {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setInt('quiz_index', index!);
+      await prefs.setInt('quiz_score', score!);
+    }
+  }
 
   void answer(int selected) {
-    if (selected == widget.questions[index].correctIndex) {
-      score++;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Верно!'), backgroundColor: Colors.green),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Не-а!'), backgroundColor: Colors.red),
-      );
-    }
+    if (_isProcessing || index == null) return;
 
-    if (index < widget.questions.length - 1) {
-      setState(() => index++);
+    final correctIndex = widget.questions[index!].correctIndex;
+
+    if (selected == correctIndex) {
+      // ✅ Правильный ответ
+      _isProcessing = true;
+      setState(() {
+        selectedOption = selected;
+        selectedColor = Colors.green;
+        score = (score ?? 0) + 1;
+      });
+      _saveProgress();
+
+      Future.delayed(const Duration(seconds: 1), () {
+        if (mounted) {
+          if (index! < widget.questions.length - 1) {
+            setState(() {
+              index = index! + 1;
+              selectedOption = null;
+              selectedColor = null;
+              _isProcessing = false;
+            });
+            _saveProgress();
+          } else {
+            _showCompletionDialog();
+          }
+        }
+      });
     } else {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (_) => AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          title: const Text('Квиз завершён!', textAlign: TextAlign.center),
-          content: Text(
-            'Счёт: $score из ${widget.questions.length}',
-            textAlign: TextAlign.center,
-          ),
-          actions: [
-            Center(
-              child: FilledButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  setState(() => index = score = 0);
-                },
-                child: const Text('Играть снова'),
-              ),
-            ),
-          ],
-        ),
-      );
+      // ❌ Неверный ответ — подсветка, но остаёмся на том же вопросе
+      setState(() {
+        selectedOption = selected;
+        selectedColor = Colors.red;
+      });
+      // Не блокируем повторные попытки (только один тап за раз)
+      // Защита от спама: сбрасываем через 300 мс
+      _isProcessing = true;
+      Future.delayed(const Duration(milliseconds: 300), () {
+        if (mounted) {
+          setState(() {
+            _isProcessing = false;
+          });
+        }
+      });
     }
+  }
+
+  void _showCompletionDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        title: const Text('Квиз завершён!', textAlign: TextAlign.center),
+        content: Text(
+          'Счёт: $score из ${widget.questions.length}',
+          textAlign: TextAlign.center,
+        ),
+        actions: [
+          Center(
+            child: FilledButton(
+              onPressed: () async {
+                Navigator.pop(context);
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setInt('quiz_index', 0);
+                await prefs.setInt('quiz_score', 0);
+                if (mounted) {
+                  setState(() {
+                    index = 0;
+                    score = 0;
+                    selectedOption = null;
+                    selectedColor = null;
+                    _isProcessing = false;
+                  });
+                }
+              },
+              child: const Text('Играть снова'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    final q = widget.questions[index];
+    if (index == null || score == null) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
+
+    final q = widget.questions[index!];
 
     return Scaffold(
       body: Stack(
         children: [
-          // Фон — оставляем как есть (cover)
           Positioned.fill(
             child: Image.asset(
               q.background,
@@ -142,7 +241,6 @@ class _QuizPageState extends State<QuizPage> {
           SafeArea(
             child: Column(
               children: [
-                // Компактные счётчики
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Row(
@@ -155,7 +253,7 @@ class _QuizPageState extends State<QuizPage> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Text(
-                          '${index + 1}/${widget.questions.length}',
+                          '${index! + 1}/${widget.questions.length}',
                           style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                       ),
@@ -183,7 +281,6 @@ class _QuizPageState extends State<QuizPage> {
 
                 const SizedBox(height: 12),
 
-                // ТРИ ВСЕГДА КВАДРАТНЫХ КАРТИНКИ — ИСПРАВЛЕНО!
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -192,21 +289,27 @@ class _QuizPageState extends State<QuizPage> {
                         child: Padding(
                           padding: const EdgeInsets.all(10),
                           child: GestureDetector(
-                            onTap: () => answer(i),
+                            onTap: _isProcessing ? null : () => answer(i), // 🔒 защита
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(28),
                                 boxShadow: const [
                                   BoxShadow(color: Colors.black54, blurRadius: 16, offset: Offset(0, 8)),
                                 ],
+                                border: selectedOption == i
+                                    ? Border.all(
+                                  color: selectedColor ?? Colors.transparent,
+                                  width: 4,
+                                )
+                                    : null,
                               ),
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(28),
                                 child: AspectRatio(
-                                  aspectRatio: 1.0, // ← ГАРАНТИРОВАННО КВАДРАТ
+                                  aspectRatio: 1.0,
                                   child: Image.asset(
                                     q.options[i],
-                                    fit: BoxFit.contain, // ✅ ИСПРАВЛЕНО: без обрезки
+                                    fit: BoxFit.contain,
                                     errorBuilder: (_, __, ___) => Container(
                                       color: Colors.grey[600],
                                       alignment: Alignment.center,
@@ -225,12 +328,11 @@ class _QuizPageState extends State<QuizPage> {
 
                 const SizedBox(height: 16),
 
-                // Компактный вопрос
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
                   padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.97),
+                    color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(24),
                     boxShadow: const [
                       BoxShadow(color: Colors.black38, blurRadius: 12, offset: Offset(0, 4)),
@@ -240,8 +342,9 @@ class _QuizPageState extends State<QuizPage> {
                     q.question,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 24,
+                      fontSize: 12,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                       height: 1.3,
                     ),
                   ),
