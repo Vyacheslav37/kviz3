@@ -20,7 +20,4 @@ flutter:
 
   assets:
     - assets/questions.json
-    - assets/bg_charge.jpg
-    - assets/option_run.png
-    - assets/option_pray.png
-    - assets/option_ignore.png
+    - assets/images/

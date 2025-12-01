@@ -1,184 +1,119 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const QuizApp());
-}
+void main() => runApp(const QuizApp());
 
 class QuizApp extends StatelessWidget {
   const QuizApp({super.key});
-
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Смешной Квиз',
-      theme: ThemeData(
-        fontFamily: 'Roboto', // можно подключить любой шрифт
-        useMaterial3: true,
-        primarySwatch: Colors.deepPurple,
-      ),
-      home: const QuizLoaderPage(),
-    );
-  }
+  Widget build(BuildContext context) => MaterialApp(
+    debugShowCheckedModeBanner: false,
+    title: 'Смешной Квиз',
+    theme: ThemeData(useMaterial3: true),
+    home: const QuizLoaderPage(),
+  );
 }
 
 class QuizQuestion {
   final String question;
-  final String background; // фон вопроса
-  final List<String> options; // пути к картинкам-ответам
+  final String background;
+  final List<String> options;
   final int correctIndex;
-
   QuizQuestion({
     required this.question,
     required this.background,
     required this.options,
     required this.correctIndex,
   });
-
-  factory QuizQuestion.fromJson(Map<String, dynamic> json) {
-    return QuizQuestion(
-      question: json['question'] as String,
-      background: json['background'] as String,
-      options: List<String>.from(json['options'] as List),
-      correctIndex: json['correctIndex'] as int,
-    );
-  }
+  factory QuizQuestion.fromJson(Map<String, dynamic> json) => QuizQuestion(
+    question: json['question'],
+    background: json['background'],
+    options: List<String>.from(json['options']),
+    correctIndex: json['correctIndex'],
+  );
 }
 
 class QuizLoaderPage extends StatefulWidget {
   const QuizLoaderPage({super.key});
-
   @override
   State<QuizLoaderPage> createState() => _QuizLoaderPageState();
 }
 
 class _QuizLoaderPageState extends State<QuizLoaderPage> {
-  late Future<List<QuizQuestion>> _futureQuestions;
+  late Future<List<QuizQuestion>> future;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _futureQuestions = _loadQuestions();
-  }
-
-  Future<List<QuizQuestion>> _loadQuestions() async {
-    final String data = await DefaultAssetBundle.of(context)
-        .loadString('assets/questions.json');
-    final List<dynamic> parsed = jsonDecode(data);
-    return parsed
-        .map((e) => QuizQuestion.fromJson(e as Map<String, dynamic>))
-        .toList();
+    future = DefaultAssetBundle.of(context)
+        .loadString('assets/questions.json')
+        .then((d) => jsonDecode(d) as List)
+        .then((l) => l.map((e) => QuizQuestion.fromJson(e)).toList());
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: FutureBuilder<List<QuizQuestion>>(
-        future: _futureQuestions,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircularProgressIndicator(strokeWidth: 6),
-                  SizedBox(height: 30),
-                  Text(
-                    'Готовим мемы...',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            );
-          }
-
-          if (snapshot.hasError || !snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(Icons.sentiment_very_dissatisfied, size: 80, color: Colors.grey),
-                  const SizedBox(height: 20),
-                  const Text('Мемы не загрузились :(', style: TextStyle(fontSize: 20)),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: () => setState(() {}),
-                    child: const Text('Попробовать снова'),
-                  ),
-                ],
-              ),
-            );
-          }
-
-          return QuizPage(questions: snapshot.data!);
-        },
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+    body: FutureBuilder<List<QuizQuestion>>(
+      future: future,
+      builder: (context, snap) {
+        if (snap.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+        if (!snap.hasData || snap.data!.isEmpty) {
+          return const Center(child: Text('Ошибка загрузки вопросов'));
+        }
+        return QuizPage(questions: snap.data!);
+      },
+    ),
+  );
 }
 
 class QuizPage extends StatefulWidget {
   final List<QuizQuestion> questions;
   const QuizPage({super.key, required this.questions});
-
   @override
   State<QuizPage> createState() => _QuizPageState();
 }
 
 class _QuizPageState extends State<QuizPage> {
-  int currentIndex = 0;
+  int index = 0;
   int score = 0;
 
-  void answer(int selectedIndex) {
-    if (selectedIndex == widget.questions[currentIndex].correctIndex) {
+  void answer(int selected) {
+    if (selected == widget.questions[index].correctIndex) {
       score++;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('😂 Верно!', style: TextStyle(fontSize: 18)),
-          backgroundColor: Colors.green,
-          duration: Duration(milliseconds: 800),
-        ),
+        const SnackBar(content: Text('Верно!'), backgroundColor: Colors.green),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('🤦‍♂️ Не-а!', style: TextStyle(fontSize: 18)),
-          backgroundColor: Colors.red,
-          duration: Duration(milliseconds: 800),
-        ),
+        const SnackBar(content: Text('Не-а!'), backgroundColor: Colors.red),
       );
     }
 
-    if (currentIndex < widget.questions.length - 1) {
-      setState(() => currentIndex++);
+    if (index < widget.questions.length - 1) {
+      setState(() => index++);
     } else {
-      // Финал
       showDialog(
         context: context,
         barrierDismissible: false,
         builder: (_) => AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          title: const Text('🏆 Квиз пройден!', textAlign: TextAlign.center),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+          title: const Text('Квиз завершён!', textAlign: TextAlign.center),
           content: Text(
-            'Ты набрал $score из ${widget.questions.length}\n\nТы — настоящий мемный эксперт! 🔥',
+            'Счёт: $score из ${widget.questions.length}',
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 18),
           ),
           actions: [
             Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                ),
+              child: FilledButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
-                  setState(() {
-                    currentIndex = 0;
-                    score = 0;
-                  });
+                  Navigator.pop(context);
+                  setState(() => index = score = 0);
                 },
-                child: const Text('Играть снова', style: TextStyle(fontSize: 18)),
+                child: const Text('Играть снова'),
               ),
             ),
           ],
@@ -189,110 +124,126 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
-    final question = widget.questions[currentIndex];
+    final q = widget.questions[index];
 
     return Scaffold(
       body: Stack(
         children: [
-          // Фон вопроса
-          Image.asset(
-            question.background,
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
+          // Фон — оставляем как есть (cover)
+          Positioned.fill(
+            child: Image.asset(
+              q.background,
+              fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => Container(color: Colors.grey[800]),
+            ),
           ),
-
-          // Тёмная подложка для читаемости
-          Container(color: Colors.black.withOpacity(0.4)),
+          Container(color: Colors.black.withOpacity(0.35)),
 
           SafeArea(
             child: Column(
               children: [
-                // Прогресс и счёт
+                // Компактные счётчики
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Chip(
-                        backgroundColor: Colors.white.withOpacity(0.9),
-                        label: Text(
-                          '${currentIndex + 1}/${widget.questions.length}',
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.95),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text(
+                          '${index + 1}/${widget.questions.length}',
+                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                       ),
-                      Chip(
-                        backgroundColor: Colors.amber,
-                        avatar: const Icon(Icons.star, color: Colors.orange),
-                        label: Text(
-                          'Счёт: $score',
-                          style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black87),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(Icons.star, color: Colors.orange, size: 20),
+                            const SizedBox(width: 6),
+                            Text(
+                              score.toString(),
+                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 12),
 
-                // Вопрос
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Card(
-                    color: Colors.white.withOpacity(0.95),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Text(
-                        question.question,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                          height: 1.3,
+                // ТРИ ВСЕГДА КВАДРАТНЫХ КАРТИНКИ — ИСПРАВЛЕНО!
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      children: List.generate(3, (i) => Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: GestureDetector(
+                            onTap: () => answer(i),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(28),
+                                boxShadow: const [
+                                  BoxShadow(color: Colors.black54, blurRadius: 16, offset: Offset(0, 8)),
+                                ],
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(28),
+                                child: AspectRatio(
+                                  aspectRatio: 1.0, // ← ГАРАНТИРОВАННО КВАДРАТ
+                                  child: Image.asset(
+                                    q.options[i],
+                                    fit: BoxFit.contain, // ✅ ИСПРАВЛЕНО: без обрезки
+                                    errorBuilder: (_, __, ___) => Container(
+                                      color: Colors.grey[600],
+                                      alignment: Alignment.center,
+                                      child: const Icon(Icons.broken_image, color: Colors.grey),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
+                      )),
                     ),
                   ),
                 ),
 
-                const SizedBox(height: 30),
+                const SizedBox(height: 16),
 
-                // Варианты ответов — КАРТИНКИ
-                Expanded(
-                  child: GridView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 16,
-                      mainAxisSpacing: 16,
-                      childAspectRatio: 1,
+                // Компактный вопрос
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.97),
+                    borderRadius: BorderRadius.circular(24),
+                    boxShadow: const [
+                      BoxShadow(color: Colors.black38, blurRadius: 12, offset: Offset(0, 4)),
+                    ],
+                  ),
+                  child: Text(
+                    q.question,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      height: 1.3,
                     ),
-                    itemCount: question.options.length,
-                    itemBuilder: (context, i) {
-                      return GestureDetector(
-                        onTap: () => answer(i),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.3),
-                                blurRadius: 10,
-                                offset: const Offset(0, 5),
-                              ),
-                            ],
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: Image.asset(
-                              question.options[i],
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
                   ),
                 ),
 

@@ -1,11 +1,11 @@
 [
   {
     "question": "Что ты делаешь, когда заряд на телефоне — 1%?",
-    "background": "assets/bg_charge.jpg",
+    "background": "assets/images/bg_charge.png",
     "options": [
-      "assets/option_run.png",
-      "assets/option_pray.png",
-      "assets/option_ignore.png"
+      "assets/images/option_run.png",
+      "assets/images/option_pray.png",
+      "assets/images/option_ignore.png"
     ],
     "correctIndex": 1
   },
