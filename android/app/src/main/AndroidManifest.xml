@@ -1,10 +1,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tap_quiz">
+
+    <!-- Обязательные разрешения для Yandex Ads -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- AD_ID нужен для персонализации рекламы (обязательно с 2024 года) -->
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 
     <application
         android:label="Tap Quiz"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- Убираем tools:node="remove" — иначе AD_ID вообще не будет работать -->
+        <!-- <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/> -->
+        <!-- Это строчка была виновата в ошибке парсинга манифеста! -->
 
         <activity
             android:name=".MainActivity"
@@ -18,7 +30,7 @@
 
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
-                android:resource="@style/NormalTheme"/>
+                android:resource="@style/NormalTheme" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -26,11 +38,22 @@
             </intent-filter>
         </activity>
 
+        <!-- Обязательная мета для Flutter Embedding v2 -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <!-- Это нужно для Yandex Ads (рекомендовано в документации) -->
+        <meta-data
+            android:name="com.yandex.mobileads.TAG_FOR_CHILD_DIRECTED_TREATMENT"
+            android:value="false" />
+        <meta-data
+            android:name="com.yandex.mobileads.TAG_FOR_UNDER_AGE_OF_CONSENT"
+            android:value="false" />
+
     </application>
 
+    <!-- Для Android 13+ (необязательно, но лучше оставить) -->
     <queries>
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
