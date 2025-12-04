@@ -1,102 +1,602 @@
 [
   {
-    "question": "Что ты делаешь, когда заряд на телефоне — 1%?",
-    "background": "assets/images/bg_charge.png",
-    "options": [
-      "assets/images/option_run.png",
-      "assets/images/option_pray.png",
-      "assets/images/option_ignore.png"
-    ],
+    "question": "Какой орган у кошек позволяет им «чувствовать» форму предметов без зрения?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["1_1.png", "1_2.png", "1_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Почему кошки часто «мяукают» только людям, а не другим кошкам?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["2_1.png", "2_2.png", "2_3.png"],
     "correctIndex": 1
   },
   {
-    "question": "Как выглядит человек, который пообещал себе лечь спать в 23:00?",
-    "background": "assets/bg_sleep.jpg",
-    "options": [
-      "assets/option_sleep_memes.png",
-      "assets/option_sleep_scroll.png",
-      "assets/option_sleep_real.png"
-    ],
+    "question": "Как называется группа кошек, если их больше трёх?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["3_1.png", "3_2.png", "3_3.png"],
     "correctIndex": 0
   },
   {
-    "question": "Что делает взрослый человек, когда включил стирку?",
-    "background": "assets/bg_laundry.jpg",
-    "options": [
-      "assets/option_wait_machine.png",
-      "assets/option_forget_machine.png",
-      "assets/option_supervise_machine.png"
-    ],
-    "correctIndex": 1
-  },
-  {
-    "question": "Как выглядит 'ещё одна серия и спать' в реальности?",
-    "background": "assets/bg_series.jpg",
-    "options": [
-      "assets/option_sleep3am.png",
-      "assets/option_sleepnormal.png",
-      "assets/option_sleepnever.png"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что делает человек, который решил 'начать новую жизнь с понедельника'?",
-    "background": "assets/bg_monday.jpg",
-    "options": [
-      "assets/option_sport.png",
-      "assets/option_pizza.png",
-      "assets/option_plan.png"
-    ],
-    "correctIndex": 1
-  },
-  {
-    "question": "Что происходит, когда человек услышал слово “скидки”?",
-    "background": "assets/bg_sale.jpg",
-    "options": [
-      "assets/option_runfast.png",
-      "assets/option_think.png",
-      "assets/option_emptywallet.png"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "Как выглядит человек, который заставил себя пойти в спортзал?",
-    "background": "assets/bg_gym.jpg",
-    "options": [
-      "assets/option_superhero.png",
-      "assets/option_deadinside.png",
-      "assets/option_confused.png"
-    ],
-    "correctIndex": 1
-  },
-  {
-    "question": "Какой рисунок точно о тебе, когда ты смотришь меню доставки?",
-    "background": "assets/bg_delivery.jpg",
-    "options": [
-      "assets/option_bigmeal.png",
-      "assets/option_salad_fake.png",
-      "assets/option_sadwallet.png"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что происходит, когда решил 'проверить один мемчик'?",
-    "background": "assets/bg_memes.jpg",
-    "options": [
-      "assets/option_scroll_endless.png",
-      "assets/option_scroll_short.png",
-      "assets/option_close_phone.png"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что делает взрослый человек, когда услышал странный звук в квартире?",
-    "background": "assets/bg_sus.jpg",
-    "options": [
-      "assets/option_detective.png",
-      "assets/option_scared_cat.png",
-      "assets/option_ignore_sound.png"
-    ],
+    "question": "Какой витамин не вырабатывается в организме кошек, но есть в рыбе?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["4_1.png", "4_2.png", "4_3.png"],
     "correctIndex": 2
+  },
+  {
+    "question": "Какой звук кошка издаёт, когда ей комфортно и она расслаблена?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["5_1.png", "5_2.png", "5_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой цвет кошки считается символом удачи в Японии?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["6_1.png", "6_2.png", "6_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Сколько часов в сутки в среднем спит взрослая кошка?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["7_1.png", "7_2.png", "7_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой из этих предметов чаще всего «крадут» кошки?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["8_1.png", "8_2.png", "8_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "У какого из этих животных самый острый слух — кошка, собака или человек?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["9_1.png", "9_2.png", "9_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой продукт нельзя давать кошкам, даже в малых дозах?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["10_1.png", "10_2.png", "10_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой овощ считается фруктом по ботанической классификации, но овощем в кулинарии?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["11_1.png", "11_2.png", "11_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что помогает уменьшить слёзы при нарезке лука?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["12_1.png", "12_2.png", "12_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой продукт нельзя хранить в холодильнике, потому что он теряет вкус и текстуру?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["13_1.png", "13_2.png", "13_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой из этих продуктов вызывает горечь в желудке у многих людей натощак?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["14_1.png", "14_2.png", "14_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что добавляют в воду для пасты, чтобы она не слиплась?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["15_1.png", "15_2.png", "15_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой напиток помогает нейтрализовать остроту от перца чили?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["16_1.png", "16_2.png", "16_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой фрукт нельзя есть с лекарствами от давления?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["17_1.png", "17_2.png", "17_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Как называется процесс, когда яйцо всплывает в воде — признак чего?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["18_1.png", "18_2.png", "18_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой кухонный прибор быстрее всего испаряет влагу из еды?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["19_1.png", "19_2.png", "19_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что нужно добавить в чай, чтобы он стал «масала»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["20_1.png", "20_2.png", "20_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Почему стиральную машину не ставят рядом с плитой?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["21_1.png", "21_2.png", "21_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что помогает убрать запах рыбы с рук?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["22_1.png", "22_2.png", "22_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой предмет лучше всего впитывает запах в холодильнике?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["23_1.png", "23_2.png", "23_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что нужно положить в обувь, чтобы убрать запах?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["24_1.png", "24_2.png", "24_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой металл нельзя класть в микроволновку?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["25_1.png", "25_2.png", "25_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что ускоряет созревание авокадо?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["26_1.png", "26_2.png", "26_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой предмет на кухне чаще всего становится рассадником бактерий?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["27_1.png", "27_2.png", "27_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что нужно сделать с новой сковородкой перед первым использованием?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["28_1.png", "28_2.png", "28_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой тип лампочки меньше всего греется?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["29_1.png", "29_2.png", "29_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что помогает снять зуд от укуса комара?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["30_1.png", "30_2.png", "30_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Если в доме три кошки, и каждая сидит напротив двух других — сколько всего кошек?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["31_1.png", "31_2.png", "31_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что становится чище, чем больше им пользуются?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["32_1.png", "32_2.png", "32_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "У чего есть шея, но нет головы?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["33_1.png", "33_2.png", "33_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что можно сломать, даже не прикасаясь?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["34_1.png", "34_2.png", "34_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что всегда растёт, но никогда не уменьшается?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["35_1.png", "35_2.png", "35_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что имеет много ключей, но не открывает замки?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["36_1.png", "36_2.png", "36_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что идёт вверх и вниз, но не двигается?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["37_1.png", "37_2.png", "37_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что полное дыр, но держит воду?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["38_1.png", "38_2.png", "38_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что тяжелее — килограмм ваты или килограмм железа?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["39_1.png", "39_2.png", "39_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что можно увидеть с закрытыми глазами?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["40_1.png", "40_2.png", "40_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой сериал начинается с вируса, превращающего людей в зомби?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["41_1.png", "41_2.png", "41_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "В каком фильме героиня готовит пирог из куриной печёнки, думая, что это говядина?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["42_1.png", "42_2.png", "42_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Как зовут кота в сериале «Секретные материалы»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["43_1.png", "43_2.png", "43_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "В каком фильме героиня моет полы у богатых, а потом становится писательницей?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["44_1.png", "44_2.png", "44_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой мультфильм вдохновил миллионы мам на покупку розовых кухонных комбайнов?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["45_1.png", "45_2.png", "45_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "В каком сериале муж «помогает» жене, но всё портит?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["46_1.png", "46_2.png", "46_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой фильм начинается с фразы: «Я не могу варить кофе»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["47_1.png", "47_2.png", "47_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой сериал часто цитируют мамы: «Я устала. Я всё делаю сама»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["48_1.png", "48_2.png", "48_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой фильм о женщине, которая сбегает от быта на остров?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["49_1.png", "49_2.png", "49_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "В каком мультике кот носит сапоги и спасает принца?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["50_1.png", "50_2.png", "50_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Почему вода в чайнике шумит перед закипанием?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["51_1.png", "51_2.png", "51_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что образуется, когда смешать уксус и соду?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["52_1.png", "52_2.png", "52_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Почему хлеб черствеет быстрее в холодильнике?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["53_1.png", "53_2.png", "53_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой газ выделяет дрожжевое тесто?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["54_1.png", "54_2.png", "54_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Почему лёд плавает в воде?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["55_1.png", "55_2.png", "55_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что ускоряет ржавление металла на кухне?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["56_1.png", "56_2.png", "56_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Почему кофе бодрит?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["57_1.png", "57_2.png", "57_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что нужно сделать с варёным яйцом, чтобы его легко очистить?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["58_1.png", "58_2.png", "58_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Почему авокадо темнеет на воздухе?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["59_1.png", "59_2.png", "59_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что убивает большинство бактерий на разделочной доске?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["60_1.png", "60_2.png", "60_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой цвет у бутылки классического «Кока-Кола»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["61_1.png", "61_2.png", "61_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой логотип изображён на упаковке «Домик в деревне»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["62_1.png", "62_2.png", "62_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой продукт продаётся в жёлтой упаковке с красной лентой?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["63_1.png", "63_2.png", "63_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой бренд моющего средства использует синего кота в рекламе?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["64_1.png", "64_2.png", "64_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой цвет у пачки «Макфа» для макарон?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["65_1.png", "65_2.png", "65_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой логотип на бутылке «Агуша»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["66_1.png", "66_2.png", "66_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой бренд чая изображает горы на упаковке?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["67_1.png", "67_2.png", "67_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой продукт продаётся в виде «сердечек» и ассоциируется с завтраком?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["68_1.png", "68_2.png", "68_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой цвет у упаковки «Mr. Proper»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["69_1.png", "69_2.png", "69_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой бренд йогуртов использует изображение коровы?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["70_1.png", "70_2.png", "70_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой зверь спит вниз головой?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["71_1.png", "71_2.png", "71_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой домашний питомец может узнать своё имя, но игнорировать его?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["72_1.png", "72_2.png", "72_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой зверь не может прыгать?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["73_1.png", "73_2.png", "73_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой цвет не видят собаки?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["74_1.png", "74_2.png", "74_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой зверь чистит себя так же, как люди моют руки?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["75_1.png", "75_2.png", "75_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой звук издают морские свинки, когда рады?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["76_1.png", "76_2.png", "76_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой питомец может смотреть телевизор?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["77_1.png", "77_2.png", "77_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой зверь спит с открытыми глазами?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["78_1.png", "78_2.png", "78_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой домашний любимец помогает бороться со стрессом лучше всех?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["79_1.png", "79_2.png", "79_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой зверь может поворачивать голову на 270 градусов?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["80_1.png", "80_2.png", "80_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Сколько ложек сахара в среднем содержится в одном йогурте «для детей»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["81_1.png", "81_2.png", "81_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Сколько времени нужно, чтобы сварить яйцо «в мешочек»?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["82_1.png", "82_2.png", "82_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Сколько раз в день в среднем заходит мама на кухню?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["83_1.png", "83_2.png", "83_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Сколько минут в день тратится на поиск потерянного пульта?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["84_1.png", "84_2.png", "84_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Сколько носков теряется в среднем за год в семье с детьми?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["85_1.png", "85_2.png", "85_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Сколько часов в неделю уходит на стирку у средней домохозяйки?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["86_1.png", "86_2.png", "86_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Сколько видов сыра существует в мире?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["87_1.png", "87_2.png", "87_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Сколько калорий в среднем в чашке капучино с молоком?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["88_1.png", "88_2.png", "88_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Сколько раз в день в среднем кот точит когти?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["89_1.png", "89_2.png", "89_3.png"],
+    "correctIndex": 2
+  },
+  {
+    "question": "Сколько минут нужно, чтобы приготовить омлет?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["90_1.png", "90_2.png", "90_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Правда ли, что микроволновка убивает витамины больше, чем плита?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["91_1.png", "91_2.png", "91_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Правда ли, что коты боятся огурцов?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["92_1.png", "92_2.png", "92_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Правда ли, что кофе с молоком вреднее чёрного?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["93_1.png", "93_2.png", "93_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Правда ли, что уксус убивает все бактерии на кухне?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["94_1.png", "94_2.png", "94_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Правда ли, что дети едят больше, если еда красиво подана?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["95_1.png", "95_2.png", "95_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Правда ли, что сон днём вредит ночному сну у взрослых?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["96_1.png", "96_2.png", "96_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Правда ли, что «срок годности» и «срок хранения» — одно и то же?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["97_1.png", "97_2.png", "97_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Правда ли, что чай в пакетиках вреднее листового?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["98_1.png", "98_2.png", "98_3.png"],
+    "correctIndex": 1
+  },
+  {
+    "question": "Правда ли, что коты не чувствуют сладкое?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["99_1.png", "99_2.png", "99_3.png"],
+    "correctIndex": 0
+  },
+  {
+    "question": "Правда ли, что стирка при 30°C не убивает клещей?",
+    "background": "assets/images/bg_quiz.png",
+    "options": ["100_1.png", "100_2.png", "100_3.png"],
+    "correctIndex": 0
   }
 ]

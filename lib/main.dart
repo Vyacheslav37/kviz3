@@ -254,7 +254,7 @@ class _QuizPageState extends State<QuizPage> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset(q.background, fit: BoxFit.cover,
+            child: Image.network(q.background, fit: BoxFit.cover,
                 errorBuilder: (_, __, ___) => Container(color: Colors.grey[800])),
           ),
           Container(color: Colors.black.withOpacity(0.35)),
@@ -318,7 +318,7 @@ class _QuizPageState extends State<QuizPage> {
                                 borderRadius: BorderRadius.circular(28),
                                 child: AspectRatio(
                                   aspectRatio: 1.0,
-                                  child: Image.asset(q.options[i], fit: BoxFit.cover,
+                                  child: Image.network(q.options[i], fit: BoxFit.cover,
                                       errorBuilder: (_, __, ___) => Container(color: Colors.grey[600])),
                                 ),
                               ),
