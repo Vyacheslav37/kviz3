@@ -1,602 +1,1002 @@
 [
   {
     "question": "Какой орган у кошек позволяет им «чувствовать» форму предметов без зрения?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["1_1.png", "1_2.png", "1_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Почему кошки часто «мяукают» только людям, а не другим кошкам?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["2_1.png", "2_2.png", "2_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Как называется группа кошек, если их больше трёх?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["3_1.png", "3_2.png", "3_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Какой витамин не вырабатывается в организме кошек, но есть в рыбе?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["4_1.png", "4_2.png", "4_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "Какой звук кошка издаёт, когда ей комфортно и она расслаблена?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["5_1.png", "5_2.png", "5_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Какой цвет кошки считается символом удачи в Японии?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["6_1.png", "6_2.png", "6_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Сколько часов в сутки в среднем спит взрослая кошка?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["7_1.png", "7_2.png", "7_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "Какой из этих предметов чаще всего «крадут» кошки?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["8_1.png", "8_2.png", "8_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "У какого из этих животных самый острый слух — кошка, собака или человек?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["9_1.png", "9_2.png", "9_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/1_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/1_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/1_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Какой продукт нельзя давать кошкам, даже в малых дозах?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["10_1.png", "10_2.png", "10_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/2_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/2_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/2_3.webp"
+    ],
     "correctIndex": 1
   },
   {
-    "question": "Какой овощ считается фруктом по ботанической классификации, но овощем в кулинарии?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["11_1.png", "11_2.png", "11_3.png"],
+    "question": "Что появляется на свежевымытом полу через 2 минуты?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/3_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/3_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/3_3.webp"
+    ],
     "correctIndex": 2
+  },
+  {
+    "question": "Какой предмет чаще всего «крадут» кошки?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/4_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/4_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/4_3.webp"
+    ],
+    "correctIndex": 1
   },
   {
     "question": "Что помогает уменьшить слёзы при нарезке лука?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["12_1.png", "12_2.png", "12_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/5_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/5_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/5_3.webp"
+    ],
     "correctIndex": 0
   },
   {
-    "question": "Какой продукт нельзя хранить в холодильнике, потому что он теряет вкус и текстуру?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["13_1.png", "13_2.png", "13_3.png"],
+    "question": "Какой овощ считается фруктом по ботанической классификации, но овощем в кулинарии?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/6_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/6_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/6_3.webp"
+    ],
     "correctIndex": 2
   },
   {
-    "question": "Какой из этих продуктов вызывает горечь в желудке у многих людей натощак?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["14_1.png", "14_2.png", "14_3.png"],
-    "correctIndex": 1
+    "question": "Сколько часов в сутки в среднем спит взрослая кошка?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/7_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/7_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/7_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой продукт нельзя хранить в холодильнике, потому что он теряет вкус и текстуру?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/8_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/8_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/8_3.webp"
+    ],
+    "correctIndex": 2
   },
   {
     "question": "Что добавляют в воду для пасты, чтобы она не слиплась?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["15_1.png", "15_2.png", "15_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/9_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/9_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/9_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Какой напиток помогает нейтрализовать остроту от перца чили?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["16_1.png", "16_2.png", "16_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/10_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/10_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/10_3.webp"
+    ],
     "correctIndex": 2
-  },
-  {
-    "question": "Какой фрукт нельзя есть с лекарствами от давления?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["17_1.png", "17_2.png", "17_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Как называется процесс, когда яйцо всплывает в воде — признак чего?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["18_1.png", "18_2.png", "18_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Какой кухонный прибор быстрее всего испаряет влагу из еды?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["19_1.png", "19_2.png", "19_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "Что нужно добавить в чай, чтобы он стал «масала»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["20_1.png", "20_2.png", "20_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Почему стиральную машину не ставят рядом с плитой?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["21_1.png", "21_2.png", "21_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что помогает убрать запах рыбы с рук?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["22_1.png", "22_2.png", "22_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Какой предмет лучше всего впитывает запах в холодильнике?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["23_1.png", "23_2.png", "23_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "Что нужно положить в обувь, чтобы убрать запах?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["24_1.png", "24_2.png", "24_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Какой металл нельзя класть в микроволновку?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["25_1.png", "25_2.png", "25_3.png"],
-    "correctIndex": 1
   },
   {
     "question": "Что ускоряет созревание авокадо?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["26_1.png", "26_2.png", "26_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/11_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/11_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/11_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Какой предмет на кухне чаще всего становится рассадником бактерий?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["27_1.png", "27_2.png", "27_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/12_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/12_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/12_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Что нужно сделать с новой сковородкой перед первым использованием?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["28_1.png", "28_2.png", "28_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/13_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/13_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/13_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Какой тип лампочки меньше всего греется?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["29_1.png", "29_2.png", "29_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/14_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/14_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/14_3.webp"
+    ],
     "correctIndex": 2
   },
   {
-    "question": "Что помогает снять зуд от укуса комара?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["30_1.png", "30_2.png", "30_3.png"],
+    "question": "Почему стиральную машину не ставят рядом с плитой?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/15_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/15_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/15_3.webp"
+    ],
     "correctIndex": 0
   },
   {
-    "question": "Если в доме три кошки, и каждая сидит напротив двух других — сколько всего кошек?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["31_1.png", "31_2.png", "31_3.png"],
+    "question": "Что помогает убрать запах рыбы с рук?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/16_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/16_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/16_3.webp"
+    ],
     "correctIndex": 1
   },
   {
-    "question": "Что становится чище, чем больше им пользуются?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["32_1.png", "32_2.png", "32_3.png"],
+    "question": "Что нужно положить в обувь, чтобы убрать запах?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/17_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/17_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/17_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой металл нельзя класть в микроволновку?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/18_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/18_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/18_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой предмет лучше всего впитывает запах в холодильнике?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/19_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/19_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/19_3.webp"
+    ],
     "correctIndex": 2
-  },
-  {
-    "question": "У чего есть шея, но нет головы?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["33_1.png", "33_2.png", "33_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что можно сломать, даже не прикасаясь?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["34_1.png", "34_2.png", "34_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Что всегда растёт, но никогда не уменьшается?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["35_1.png", "35_2.png", "35_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "Что имеет много ключей, но не открывает замки?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["36_1.png", "36_2.png", "36_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что идёт вверх и вниз, но не двигается?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["37_1.png", "37_2.png", "37_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Что полное дыр, но держит воду?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["38_1.png", "38_2.png", "38_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "Что тяжелее — килограмм ваты или килограмм железа?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["39_1.png", "39_2.png", "39_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что можно увидеть с закрытыми глазами?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["40_1.png", "40_2.png", "40_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Какой сериал начинается с вируса, превращающего людей в зомби?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["41_1.png", "41_2.png", "41_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "В каком фильме героиня готовит пирог из куриной печёнки, думая, что это говядина?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["42_1.png", "42_2.png", "42_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Как зовут кота в сериале «Секретные материалы»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["43_1.png", "43_2.png", "43_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "В каком фильме героиня моет полы у богатых, а потом становится писательницей?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["44_1.png", "44_2.png", "44_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "Какой мультфильм вдохновил миллионы мам на покупку розовых кухонных комбайнов?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["45_1.png", "45_2.png", "45_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "В каком сериале муж «помогает» жене, но всё портит?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["46_1.png", "46_2.png", "46_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Какой фильм начинается с фразы: «Я не могу варить кофе»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["47_1.png", "47_2.png", "47_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "Какой сериал часто цитируют мамы: «Я устала. Я всё делаю сама»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["48_1.png", "48_2.png", "48_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Какой фильм о женщине, которая сбегает от быта на остров?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["49_1.png", "49_2.png", "49_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "В каком мультике кот носит сапоги и спасает принца?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["50_1.png", "50_2.png", "50_3.png"],
-    "correctIndex": 2
-  },
-  {
-    "question": "Почему вода в чайнике шумит перед закипанием?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["51_1.png", "51_2.png", "51_3.png"],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что образуется, когда смешать уксус и соду?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["52_1.png", "52_2.png", "52_3.png"],
-    "correctIndex": 1
   },
   {
     "question": "Почему хлеб черствеет быстрее в холодильнике?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["53_1.png", "53_2.png", "53_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/20_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/20_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/20_3.webp"
+    ],
     "correctIndex": 2
   },
   {
-    "question": "Какой газ выделяет дрожжевое тесто?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["54_1.png", "54_2.png", "54_3.png"],
-    "correctIndex": 0
+    "question": "Что образуется, когда смешать уксус и соду?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/21_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/21_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/21_3.webp"
+    ],
+    "correctIndex": 1
   },
   {
     "question": "Почему лёд плавает в воде?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["55_1.png", "55_2.png", "55_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/22_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/22_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/22_3.webp"
+    ],
     "correctIndex": 1
   },
   {
-    "question": "Что ускоряет ржавление металла на кухне?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["56_1.png", "56_2.png", "56_3.png"],
-    "correctIndex": 2
+    "question": "Какой газ выделяет дрожжевое тесто?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/23_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/23_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/23_3.webp"
+    ],
+    "correctIndex": 0
   },
   {
     "question": "Почему кофе бодрит?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["57_1.png", "57_2.png", "57_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/24_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/24_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/24_3.webp"
+    ],
     "correctIndex": 0
-  },
-  {
-    "question": "Что нужно сделать с варёным яйцом, чтобы его легко очистить?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["58_1.png", "58_2.png", "58_3.png"],
-    "correctIndex": 1
   },
   {
     "question": "Почему авокадо темнеет на воздухе?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["59_1.png", "59_2.png", "59_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/25_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/25_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/25_3.webp"
+    ],
     "correctIndex": 2
   },
   {
-    "question": "Что убивает большинство бактерий на разделочной доске?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["60_1.png", "60_2.png", "60_3.png"],
-    "correctIndex": 0
-  },
-  {
     "question": "Какой цвет у бутылки классического «Кока-Кола»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["61_1.png", "61_2.png", "61_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/26_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/26_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/26_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Какой логотип изображён на упаковке «Домик в деревне»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["62_1.png", "62_2.png", "62_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/27_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/27_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/27_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Какой продукт продаётся в жёлтой упаковке с красной лентой?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["63_1.png", "63_2.png", "63_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/28_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/28_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/28_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Какой бренд моющего средства использует синего кота в рекламе?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["64_1.png", "64_2.png", "64_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/29_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/29_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/29_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Какой цвет у пачки «Макфа» для макарон?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["65_1.png", "65_2.png", "65_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/30_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/30_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/30_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Какой логотип на бутылке «Агуша»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["66_1.png", "66_2.png", "66_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/31_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/31_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/31_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Какой бренд чая изображает горы на упаковке?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["67_1.png", "67_2.png", "67_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/32_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/32_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/32_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Какой продукт продаётся в виде «сердечек» и ассоциируется с завтраком?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["68_1.png", "68_2.png", "68_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/33_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/33_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/33_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Какой цвет у упаковки «Mr. Proper»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["69_1.png", "69_2.png", "69_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/34_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/34_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/34_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Какой бренд йогуртов использует изображение коровы?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["70_1.png", "70_2.png", "70_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/35_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/35_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/35_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Какой зверь спит вниз головой?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["71_1.png", "71_2.png", "71_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/36_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/36_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/36_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Какой домашний питомец может узнать своё имя, но игнорировать его?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["72_1.png", "72_2.png", "72_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/37_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/37_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/37_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Какой зверь не может прыгать?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["73_1.png", "73_2.png", "73_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/38_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/38_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/38_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Какой цвет не видят собаки?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["74_1.png", "74_2.png", "74_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/39_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/39_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/39_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Какой зверь чистит себя так же, как люди моют руки?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["75_1.png", "75_2.png", "75_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/40_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/40_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/40_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Какой звук издают морские свинки, когда рады?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["76_1.png", "76_2.png", "76_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/41_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/41_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/41_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Какой питомец может смотреть телевизор?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["77_1.png", "77_2.png", "77_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/42_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/42_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/42_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Какой зверь спит с открытыми глазами?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["78_1.png", "78_2.png", "78_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/43_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/43_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/43_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Какой домашний любимец помогает бороться со стрессом лучше всех?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["79_1.png", "79_2.png", "79_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/44_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/44_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/44_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Какой зверь может поворачивать голову на 270 градусов?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["80_1.png", "80_2.png", "80_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/45_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/45_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/45_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Сколько ложек сахара в среднем содержится в одном йогурте «для детей»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["81_1.png", "81_2.png", "81_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/46_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/46_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/46_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Сколько времени нужно, чтобы сварить яйцо «в мешочек»?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["82_1.png", "82_2.png", "82_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/47_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/47_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/47_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Сколько раз в день в среднем заходит мама на кухню?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["83_1.png", "83_2.png", "83_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/48_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/48_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/48_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Сколько минут в день тратится на поиск потерянного пульта?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["84_1.png", "84_2.png", "84_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/49_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/49_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/49_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Сколько носков теряется в среднем за год в семье с детьми?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["85_1.png", "85_2.png", "85_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/50_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/50_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/50_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Сколько часов в неделю уходит на стирку у средней домохозяйки?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["86_1.png", "86_2.png", "86_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/51_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/51_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/51_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Сколько видов сыра существует в мире?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["87_1.png", "87_2.png", "87_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/52_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/52_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/52_3.webp"
+    ],
     "correctIndex": 0
   },
   {
     "question": "Сколько калорий в среднем в чашке капучино с молоком?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["88_1.png", "88_2.png", "88_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/53_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/53_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/53_3.webp"
+    ],
     "correctIndex": 1
   },
   {
     "question": "Сколько раз в день в среднем кот точит когти?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["89_1.png", "89_2.png", "89_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/54_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/54_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/54_3.webp"
+    ],
     "correctIndex": 2
   },
   {
     "question": "Сколько минут нужно, чтобы приготовить омлет?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["90_1.png", "90_2.png", "90_3.png"],
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/55_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/55_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/55_3.webp"
+    ],
     "correctIndex": 0
   },
   {
-    "question": "Правда ли, что микроволновка убивает витамины больше, чем плита?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["91_1.png", "91_2.png", "91_3.png"],
+    "question": "Какой звук кошка издаёт, когда ей комфортно и она расслаблена?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/56_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/56_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/56_3.webp"
+    ],
     "correctIndex": 1
   },
   {
-    "question": "Правда ли, что коты боятся огурцов?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["92_1.png", "92_2.png", "92_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Правда ли, что кофе с молоком вреднее чёрного?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["93_1.png", "93_2.png", "93_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Правда ли, что уксус убивает все бактерии на кухне?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["94_1.png", "94_2.png", "94_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Правда ли, что дети едят больше, если еда красиво подана?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["95_1.png", "95_2.png", "95_3.png"],
+    "question": "Какой цвет кошки считается символом удачи в Японии?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/57_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/57_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/57_3.webp"
+    ],
     "correctIndex": 0
   },
   {
-    "question": "Правда ли, что сон днём вредит ночному сну у взрослых?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["96_1.png", "96_2.png", "96_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Правда ли, что «срок годности» и «срок хранения» — одно и то же?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["97_1.png", "97_2.png", "97_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Правда ли, что чай в пакетиках вреднее листового?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["98_1.png", "98_2.png", "98_3.png"],
-    "correctIndex": 1
-  },
-  {
-    "question": "Правда ли, что коты не чувствуют сладкое?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["99_1.png", "99_2.png", "99_3.png"],
+    "question": "Как называется группа кошек, если их больше трёх?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/58_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/58_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/58_3.webp"
+    ],
     "correctIndex": 0
   },
   {
-    "question": "Правда ли, что стирка при 30°C не убивает клещей?",
-    "background": "assets/images/bg_quiz.png",
-    "options": ["100_1.png", "100_2.png", "100_3.png"],
+    "question": "Почему кошки часто «мяукают» только людям, а не другим кошкам?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/59_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/59_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/59_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "У какого из этих животных самый острый слух — кошка, собака или человек?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/60_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/60_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/60_3.webp"
+    ],
     "correctIndex": 0
+  },
+  {
+    "question": "Какой витамин не вырабатывается в организме кошек, но есть в рыбе?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/61_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/61_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/61_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что полное дыр, но держит воду?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/62_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/62_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/62_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что становится чище, чем больше им пользуются?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/63_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/63_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/63_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "У чего есть шея, но нет головы?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/64_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/64_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/64_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что можно сломать, даже не прикасаясь?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/65_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/65_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/65_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что всегда растёт, но никогда не уменьшается?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/66_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/66_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/66_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что имеет много ключей, но не открывает замки?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/67_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/67_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/67_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что идёт вверх и вниз, но не двигается?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/68_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/68_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/68_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что тяжелее — килограмм ваты или килограмм железа?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/69_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/69_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/69_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что можно увидеть с закрытыми глазами?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/70_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/70_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/70_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Если в доме три кошки, и каждая сидит напротив двух других — сколько всего кошек?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/71_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/71_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/71_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой кухонный прибор быстрее всего испаряет влагу из еды?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/72_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/72_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/72_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Как называется процесс, когда яйцо всплывает в воде — признак чего?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/73_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/73_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/73_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что нужно добавить в чай, чтобы он стал «масала»?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/74_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/74_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/74_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что ускоряет ржавление металла на кухне?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/75_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/75_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/75_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что появляется в холодильнике, как только ты его наполнила?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/76_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/76_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/76_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой предмет муж ищет 15 минут, хотя он лежит на виду?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/77_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/77_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/77_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что делает ребёнок, пока ты говоришь «ещё 5 минут»?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/78_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/78_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/78_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой предмет в ванной всегда пустой, когда тебе срочно нужно?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/79_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/79_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/79_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что появляется на диване сразу после того, как ты его заправила?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/80_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/80_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/80_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой продукт чаще всего исчезает из холодильника, как только ты отвернулась?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/81_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/81_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/81_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что появляется в сумке, если ты «только в магазин»?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/82_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/82_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/82_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой предмет чаще всего теряется в доме, где есть дети?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/83_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/83_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/83_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что делает кот, как только ты садишься с чашкой кофе?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/84_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/84_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/84_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой напиток спасает маму утром, пока все ещё спят?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/85_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/85_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/85_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что появляется в стиральной машине, если туда положить один носок?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/86_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/86_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/86_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой предмет муж считает сложным, как космический корабль?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/87_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/87_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/87_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что остаётся в магазине, если ты «просто сбегать за хлебом»?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/88_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/88_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/88_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что делает кот, когда ты включаешь пылесос?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/89_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/89_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/89_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Что появляется на кухне сразу после «я всё убрала»?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/90_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/90_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/90_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что точно НЕ убирает запах в холодильнике?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/91_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/91_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/91_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Сколько времени длится «пятиминутка для себя» на самом деле?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/92_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/92_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/92_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой чай ассоциируется с сериалами и вечером?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/93_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/93_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/93_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что пишут на упаковке, но мама всё равно проверяет?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/94_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/94_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/94_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Как выглядит тарелка, которую красиво подали ребёнку?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/95_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/95_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/95_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Что делает кот, увидев огурец на полу?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/96_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/96_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/96_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Какой напиток муж считает «вредным», но сам пьёт литрами?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/97_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/97_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/97_3.webp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "question": "Какой фрукт ассоциируется с завтраком у миллионов мам?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/98_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/98_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/98_3.webp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "question": "Какой продукт чаще всего «тают» дети, когда мама отвернулась?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/99_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/99_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/99_3.webp"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "question": "Что появляется на руке, если ты уснула на диване с кофе?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/100_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/100_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/100_3.webp"
+    ],
+    "correctIndex": 1
   }
 ]
