@@ -30,7 +30,7 @@
     "correctIndex": 2
   },
   {
-    "question": "Какой предмет чаще всего «крадут» кошки?",
+    "question": "Что чаще всего «крадут» кошки?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/4_1.webp",
@@ -60,7 +60,7 @@
     "correctIndex": 2
   },
   {
-    "question": "Сколько часов в сутки в среднем спит взрослая кошка?",
+    "question": "Почему кошка может внезапно «взорваться» и начать носиться по дому, как сумасшедшая?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/7_1.webp",
@@ -80,7 +80,7 @@
     "correctIndex": 2
   },
   {
-    "question": "Что добавляют в воду для пасты, чтобы она не слиплась?",
+    "question": "Что добавляют в макароны, чтобы не слиплись?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/9_1.webp",
