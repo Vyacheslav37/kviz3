@@ -50,14 +50,14 @@
     "correctIndex": 0
   },
   {
-    "question": "Какой овощ считается фруктом по ботанической классификации, но овощем в кулинарии?",
+    "question": "Какой плод считается ягодой по ботанике, но в кулинарии — овощем?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/6_1.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/6_2.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/6_3.webp"
     ],
-    "correctIndex": 2
+    "correctIndex": 1
   },
   {
     "question": "Почему кошка может внезапно «взорваться» и начать носиться по дому, как сумасшедшая?",
