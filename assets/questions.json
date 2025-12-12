@@ -290,7 +290,7 @@
     "correctIndex": 1
   },
   {
-    "question": "Какой цвет у пачки «Макфа» для макарон?",
+    "question": "Какой цвет у классической пачки макарон «Макфа»?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/30_1.webp",
@@ -300,7 +300,7 @@
     "correctIndex": 2
   },
   {
-    "question": "Какой логотип на бутылке «Агуша»?",
+    "question": "Что появляется в сумке, если ты «только за хлебом»?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/31_1.webp",
@@ -808,15 +808,5 @@
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/81_3.webp"
     ],
     "correctIndex": 2
-  },
-  {
-    "question": "Что появляется в сумке, если ты «только в магазин»?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/82_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/82_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/82_3.webp"
-    ],
-    "correctIndex": 0
   }
 ]
