@@ -508,5 +508,15 @@
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/51_3.webp"
     ],
     "correctIndex": 2
+  },
+  {
+    "question": "ВАМ ПОНРАВИЛАСЬ ИГРА?",
+    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
+    "options": [
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/52_1.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/52_2.webp",
+      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/52_3.webp"
+    ],
+    "correctIndex": 0
   }
 ]
