@@ -450,7 +450,7 @@
     "correctIndex": 2
   },
   {
-    "question": "Сколько ложек сахара в среднем содержится в одном йогурте «для детей»?",
+    "question": "Что полное дыр, но держит воду?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/46_1.webp",
@@ -460,7 +460,7 @@
     "correctIndex": 0
   },
   {
-    "question": "Сколько времени нужно, чтобы сварить яйцо «в мешочек»?",
+    "question": "У какого из этих животных самый острый слух?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/47_1.webp",
@@ -470,7 +470,7 @@
     "correctIndex": 1
   },
   {
-    "question": "Сколько раз в день в среднем заходит мама на кухню?",
+    "question": "Как называется группа кошек, если их больше трёх?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/48_1.webp",
@@ -480,7 +480,7 @@
     "correctIndex": 2
   },
   {
-    "question": "Какой предмет муж ищет 15 минут, хотя он лежит на виду?",
+    "question": "Что нужно добавить в чай, чтобы он стал «масала»?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/49_1.webp",
@@ -490,7 +490,7 @@
     "correctIndex": 0
   },
   {
-    "question": "Сколько носков теряется в среднем за год в семье с детьми?",
+    "question": "Какой кухонный прибор быстрее всего испаряет влагу из еды?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/50_1.webp",
@@ -500,122 +500,12 @@
     "correctIndex": 1
   },
   {
-    "question": "Что означает, если яйцо всплывает в воде?",
+    "question": "Какой цвет кошки считается символом удачи в Японии?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/51_1.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/51_2.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/51_3.webp"
-    ],
-    "correctIndex": 2
-  },
-  {
-    "question": "Какой кухонный прибор быстрее всего испаряет влагу из еды?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/52_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/52_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/52_3.webp"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "Сколько калорий в среднем в чашке капучино с молоком?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/53_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/53_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/53_3.webp"
-    ],
-    "correctIndex": 1
-  },
-  {
-    "question": "Сколько раз в день в среднем кот точит когти?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/54_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/54_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/54_3.webp"
-    ],
-    "correctIndex": 2
-  },
-  {
-    "question": "Сколько минут нужно, чтобы приготовить омлет?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/55_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/55_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/55_3.webp"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что нужно добавить в чай, чтобы он стал «масала»?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/56_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/56_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/56_3.webp"
-    ],
-    "correctIndex": 1
-  },
-  {
-    "question": "Какой цвет кошки считается символом удачи в Японии?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/57_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/57_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/57_3.webp"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "Как называется группа кошек, если их больше трёх?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/58_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/58_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/58_3.webp"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "Почему кошки часто «мяукают» только людям, а не другим кошкам?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/59_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/59_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/59_3.webp"
-    ],
-    "correctIndex": 1
-  },
-  {
-    "question": "У какого из этих животных самый острый слух — кошка, собака или человек?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/60_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/60_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/60_3.webp"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/61_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/61_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/61_3.webp"
-    ],
-    "correctIndex": 2
-  },
-  {
-    "question": "Что полное дыр, но держит воду?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/62_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/62_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/62_3.webp"
     ],
     "correctIndex": 2
   }
