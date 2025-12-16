@@ -390,7 +390,7 @@
     "correctIndex": 2
   },
   {
-    "question": "Что имеет много ключей, но не открывает замки?",
+    "question": "Какой витамин не вырабатывается в организме кошек, но есть в рыбе?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/40_1.webp",
@@ -600,7 +600,7 @@
     "correctIndex": 0
   },
   {
-    "question": "Какой витамин не вырабатывается в организме кошек, но есть в рыбе?",
+    "question": "",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/61_1.webp",
@@ -618,55 +618,5 @@
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/62_3.webp"
     ],
     "correctIndex": 2
-  },
-  {
-    "question": "Что становится чище, чем больше им пользуются?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/63_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/63_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/63_3.webp"
-    ],
-    "correctIndex": 2
-  },
-  {
-    "question": "У чего есть шея, но нет головы?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/64_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/64_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/64_3.webp"
-    ],
-    "correctIndex": 0
-  },
-  {
-    "question": "Что можно сломать, даже не прикасаясь?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/65_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/65_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/65_3.webp"
-    ],
-    "correctIndex": 1
-  },
-  {
-    "question": "Что всегда растёт, но никогда не уменьшается?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/66_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/66_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/66_3.webp"
-    ],
-    "correctIndex": 2
-  },
-  {
-    "question": "Что имеет много ключей, но не открывает замки?",
-    "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
-    "options": [
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/67_1.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/67_2.webp",
-      "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/67_3.webp"
-    ],
-    "correctIndex": 0
   }
 ]
