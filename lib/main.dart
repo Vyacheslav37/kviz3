@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,6 +18,7 @@ void main() async {
 
 class QuizApp extends StatelessWidget {
   const QuizApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -51,6 +53,7 @@ class QuizQuestion {
 
 class QuizLoaderPage extends StatefulWidget {
   const QuizLoaderPage({super.key});
+
   @override
   State<QuizLoaderPage> createState() => _QuizLoaderPageState();
 }
@@ -131,6 +134,7 @@ class QuizPage extends StatefulWidget {
     this.startIndex = 0,
     this.startScore = 0,
   });
+
   @override
   State<QuizPage> createState() => _QuizPageState();
 }
@@ -157,7 +161,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   late Animation<Offset> _starAnimation;
 
   late AudioPlayer _audioPlayer;
-  final Set<int> _answeredQuestions = {};
+  bool _isSoundPlaying = false; // ← ДОБАВЛЕНО: защита от задвоения
+
   final Set<int> _firstAttemptedQuestions = {};
 
   @override
@@ -165,6 +170,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     super.initState();
     index = widget.startIndex;
     score = widget.startScore;
+
     final optionCount = widget.questions.isNotEmpty ? widget.questions.first.options.length : 3;
     _cardKeys = List.generate(optionCount, (_) => GlobalKey());
 
@@ -181,9 +187,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     _starController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         if (mounted) {
-          setState(() {
-            _showStar = false;
-          });
+          setState(() => _showStar = false);
           debugPrint('[LOG] Анимация звезды завершена, _showStar=false');
         }
         _starController.reset();
@@ -193,14 +197,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
   Future<void> _checkInternetConnection() async {
     try {
-      final result = await InternetAddress.lookup('8.8.8.8').timeout(Duration(seconds: 3));
+      final result = await InternetAddress.lookup('8.8.8.8').timeout(const Duration(seconds: 3));
       _hasInternet = result.isNotEmpty;
     } catch (_) {
       _hasInternet = false;
     }
-    if (mounted) {
-      setState(() {});
-    }
+    if (mounted) setState(() {});
   }
 
   @override
@@ -229,7 +231,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       final loader = await _adLoader;
       await loader.loadAd(
         adRequestConfiguration: const AdRequestConfiguration(
-          adUnitId: 'demo-interstitial-yandex',
+          adUnitId: 'R-M-17620744-1',
         ),
       );
     } catch (e) {
@@ -238,16 +240,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   Future<void> _showInterstitial() async {
-    if (_ad == null || _adIsShowing) {
-      debugPrint('[LOG] Реклама недоступна или уже показывается, сброс _isProcessing');
-      _isProcessing = false;
-      return;
-    }
+    if (_ad == null || _adIsShowing) return;
 
     _adIsShowing = true;
-    if (mounted) {
-      setState(() {});
-    }
+    if (mounted) setState(() {});
 
     _ad!.setAdEventListener(
       eventListener: InterstitialAdEventListener(
@@ -267,10 +263,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
     try {
       await _ad!.show();
-      await Future.any([
-        _ad!.waitForDismiss(),
-        Future.delayed(const Duration(seconds: 10)),
-      ]);
+      await _ad!.waitForDismiss();
     } catch (e) {
       debugPrint('Ошибка показа рекламы: $e');
     } finally {
@@ -281,16 +274,17 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   void _onAdClosed() {
     if (!_adIsShowing) return;
     _adIsShowing = false;
-
     _ad?.destroy();
     _ad = null;
     _loadInterstitialAd();
 
-    _isProcessing = false;
     if (mounted) {
-      setState(() {});
-      debugPrint('[LOG] Реклама закрыта, _isProcessing=false (mounted=true)');
+      setState(() {
+        _isProcessing = false;
+      });
+      debugPrint('[LOG] Реклама закрыта, _isProcessing=false (setState)');
     } else {
+      _isProcessing = false;
       debugPrint('[LOG] Реклама закрыта, _isProcessing=false (mounted=false)');
     }
   }
@@ -302,12 +296,27 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     debugPrint('[LOG] Прогресс сохранён: index=$index, score=$score');
   }
 
+  // 🔥 ИСПРАВЛЕНО: защита от задвоения звука
   Future<void> _playSound(String asset) async {
-    debugPrint('[LOG] Остановка текущего звука перед проигрыванием $asset');
-    await _audioPlayer.stop();
-    await _audioPlayer.play(AssetSource(asset)).catchError((e) {
+    if (_isSoundPlaying) {
+      debugPrint('[LOG] Звук уже играет — пропускаем $asset');
+      return;
+    }
+
+    _isSoundPlaying = true;
+    debugPrint('[LOG] Начало проигрывания $asset');
+
+    try {
+      await _audioPlayer.stop();
+      await _audioPlayer.play(AssetSource(asset));
+      // Оба звука длятся ~1 секунду — ждём 1100 мс для надёжности
+      await Future.delayed(const Duration(milliseconds: 1100));
+    } catch (e) {
       debugPrint('[LOG] Ошибка проигрывания $asset: $e');
-    });
+    } finally {
+      _isSoundPlaying = false;
+      debugPrint('[LOG] Завершено проигрывание $asset');
+    }
   }
 
   void _updateCardKeysForCurrentQuestion() {
@@ -321,28 +330,20 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   void answer(int selected) async {
-    // 🔍 ДИАГНОСТИКА: проверка корректности индекса
     final currentOptionsCount = widget.questions[index].options.length;
     debugPrint('[LOG] 🔘 Тап по кнопке $selected (всего вариантов: $currentOptionsCount) на вопросе $index');
+
     if (selected < 0 || selected >= currentOptionsCount) {
       debugPrint('[LOG] ❌ ИГНОРИРУЕМ: индекс $selected вне диапазона [0, $currentOptionsCount)');
       return;
     }
 
     debugPrint('\n[LOG] === НАЧАЛО answer($selected) ===');
-    debugPrint('[LOG] Состояние: _isProcessing=$_isProcessing, _adIsShowing=$_adIsShowing, mounted=${mounted}');
+    debugPrint('[LOG] Состояние: _isProcessing=$_isProcessing, _adIsShowing=$_adIsShowing, mounted=$mounted');
     debugPrint('[LOG] Текущий вопрос: $index, selectedOption=$selectedOption');
 
-    if (_isProcessing) {
-      debugPrint('[LOG] БЛОКИРОВАНО: _isProcessing = true');
-      return;
-    }
-    if (_adIsShowing) {
-      debugPrint('[LOG] БЛОКИРОВАНО: реклама показывается');
-      return;
-    }
-    if (_answeredQuestions.contains(index)) {
-      debugPrint('[LOG] БЛОКИРОВАНО: вопрос $index уже завершён');
+    if (_isProcessing || _adIsShowing) {
+      debugPrint('[LOG] БЛОКИРОВАНО: _isProcessing=$_isProcessing или реклама показывается');
       return;
     }
 
@@ -355,9 +356,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     debugPrint('[LOG] Установлено _isProcessing = true');
 
     if (mounted) {
-      setState(() {
-        selectedOption = selected;
-      });
+      setState(() => selectedOption = selected);
       debugPrint('[LOG] setState выполнен (mounted=true)');
     } else {
       selectedOption = selected;
@@ -374,11 +373,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       } else {
         debugPrint('[LOG] Верный ответ, но не с первой попытки — звезда НЕ начислена');
       }
-      _answeredQuestions.add(index);
-      debugPrint('[LOG] Вопрос $index помечен как завершён');
 
       await _playSound('sounds/correct.wav');
-
       await Future.delayed(const Duration(milliseconds: 800));
 
       if (index + 1 >= widget.questions.length) {
@@ -392,7 +388,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             selectedOption = null;
             _updateCardKeysForCurrentQuestion();
           });
-          debugPrint('[LOG] Переход к вопросу $index (mounted=true)');
+          debugPrint('[LOG] Переход к вопросу $index (setState)');
         } else {
           index++;
           selectedOption = null;
@@ -404,21 +400,26 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           debugPrint('[LOG] Планируется показ рекламы после вопроса $index');
           await _showInterstitial();
         } else {
-          _isProcessing = false;
-          debugPrint('[LOG] _isProcessing = false (после верного ответа, без рекламы)');
+          if (mounted) {
+            setState(() => _isProcessing = false);
+            debugPrint('[LOG] _isProcessing = false (setState, без рекламы)');
+          } else {
+            _isProcessing = false;
+            debugPrint('[LOG] _isProcessing = false (mounted=false, без рекламы)');
+          }
         }
       }
     } else {
       debugPrint('[LOG] Ответ НЕВЕРНЫЙ');
       await _playSound('sounds/wrong.wav');
-
       await Future.delayed(const Duration(milliseconds: 500));
+
       if (mounted) {
         setState(() {
           selectedOption = null;
           _isProcessing = false;
         });
-        debugPrint('[LOG] _isProcessing = false после ошибки (mounted=true)');
+        debugPrint('[LOG] _isProcessing = false после ошибки (setState)');
       } else {
         selectedOption = null;
         _isProcessing = false;
@@ -436,13 +437,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     }
 
     if (cardIndex >= _cardKeys.length) {
-      debugPrint('[LOG] Анимация звезды отменена: cardIndex=$cardIndex вне диапазона ${_cardKeys.length}');
+      debugPrint('[LOG] Анимация звезды отменена: cardIndex вне диапазона');
       return;
     }
 
     final cardContext = _cardKeys[cardIndex].currentContext;
     final scoreContext = _scoreKey.currentContext;
-
     if (cardContext == null || scoreContext == null) {
       debugPrint('[LOG] Анимация звезды отменена: контексты null');
       return;
@@ -450,7 +450,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
     final cardBox = cardContext.findRenderObject() as RenderBox?;
     final scoreBox = scoreContext.findRenderObject() as RenderBox?;
-
     if (cardBox == null || scoreBox == null) {
       debugPrint('[LOG] Анимация звезды отменена: RenderBox null');
       return;
@@ -503,8 +502,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               children: [
                 FilledButton.icon(
                   onPressed: () async {
-                    // 🔴 ЗАМЕНИТЕ ЭТО ЗНАЧЕНИЕ НА ВАШ РЕАЛЬНЫЙ PACKAGE NAME
-                    const appId = 'ваш.ru.package.name';
+                    const appId = 'ru.example.tap_quiz'; // ← ЗАМЕНИТЕ НА СВОЙ!
                     final uri = Uri.parse('rustore://details?id=$appId');
                     try {
                       await launchUrl(uri);
@@ -524,13 +522,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 FilledButton(
                   onPressed: () async {
                     debugPrint('[LOG] Нажата кнопка "Играть снова"');
-                    // Сбрасываем прогресс
                     final prefs = await SharedPreferences.getInstance();
                     await prefs.remove('quiz_index');
                     await prefs.remove('quiz_score');
-                    // Закрываем диалог
                     Navigator.pop(context);
-                    // 🔥 ПОЛНЫЙ ПЕРЕЗАПУСК: уничтожаем текущий QuizPage и создаём заново
                     if (mounted) {
                       Navigator.pushReplacement(
                         context,
@@ -548,17 +543,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     );
   }
 
-  void _restartApp() {
-    debugPrint('[LOG] Перезапуск приложения через SystemNavigator.pop');
-    SystemNavigator.pop();
-  }
-
   Color _getBorderColor(int optionIndex) {
     if (selectedOption == null) return Colors.transparent;
     if (optionIndex == selectedOption) {
-      return widget.questions[index].correctIndex == optionIndex
-          ? Colors.green.shade700
-          : Colors.red.shade700;
+      return widget.questions[index].correctIndex == optionIndex ? Colors.green.shade700 : Colors.red.shade700;
     }
     return Colors.transparent;
   }
@@ -566,8 +554,16 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   Widget _buildImageWithErrorHandling(String url, {bool isBackground = false}) {
     return Image.network(
       url,
-      fit: isBackground ? BoxFit.cover : BoxFit.cover,
+      fit: BoxFit.cover,
+      loadingBuilder: (context, child, loadingProgress) {
+        if (loadingProgress == null) return child;
+        return Container(
+          color: isBackground ? Colors.black : Colors.grey[300],
+          child: const Center(child: CircularProgressIndicator(color: Colors.white)),
+        );
+      },
       errorBuilder: (context, error, stackTrace) {
+        debugPrint('[LOG] ❌ ОШИБКА ЗАГРУЗКИ ИЗОБРАЖЕНИЯ: $url');
         return Container(
           color: isBackground ? Colors.grey[800] : Colors.grey[600],
           alignment: Alignment.center,
@@ -582,9 +578,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     if (index >= widget.questions.length) {
       debugPrint('[LOG] Индекс вышел за границы — показ завершения');
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && !_isProcessing) {
-          _showCompletionDialog();
-        }
+        if (mounted && !_isProcessing) _showCompletionDialog();
       });
       return const Scaffold(body: SizedBox());
     }
@@ -592,7 +586,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     debugPrint('[LOG] build вызван, вопрос: $index');
     final q = widget.questions[index];
 
-    // 🔍 ДИАГНОСТИКА: состояние блокировки
     debugPrint('[LOG] 🛑 Состояние блокировки на вопросе $index: _isProcessing=$_isProcessing, mounted=$mounted');
 
     if (!_hasInternet) {
@@ -605,18 +598,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               children: [
                 const Icon(Icons.wifi_off, size: 64, color: Colors.grey),
                 const SizedBox(height: 16),
-                const Text(
-                  'Нет подключения к интернету',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+                const Text('Нет подключения к интернету', textAlign: TextAlign.center, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 2),
-                const Text(
-                  'Проверьте соединение и перезапустите приложение',
-                  style: TextStyle(color: Colors.grey),
-                ),
+                const Text('Проверьте соединение и перезапустите приложение', textAlign: TextAlign.center, style: TextStyle(color: Colors.grey)),
                 const SizedBox(height: 24),
                 FilledButton.icon(
-                  onPressed: _restartApp,
+                  onPressed: () => SystemNavigator.pop(),
                   icon: const Icon(Icons.refresh),
                   label: const Text('Перезапустить'),
                 ),
@@ -627,26 +614,19 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       );
     }
 
-    // 🔍 ДИАГНОСТИКА: проверяем совпадение количества кнопок и вариантов
     if (_cardKeys.length != q.options.length) {
-      debugPrint('[LOG] ⚠️ НЕСОВПАДЕНИЕ: _cardKeys.length=${_cardKeys.length}, q.options.length=${q.options.length} на вопросе $index');
+      debugPrint('[LOG] ⚠️ НЕСОВПАДЕНИЕ: _cardKeys.length=${_cardKeys.length}, q.options.length=${q.options.length}');
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) {
-          setState(() {
-            _updateCardKeysForCurrentQuestion();
-          });
-        }
+        if (mounted) setState(() => _updateCardKeysForCurrentQuestion());
       });
     } else {
-      debugPrint('[LOG] ✅ Количество кнопок и вариантов совпадает (${_cardKeys.length}) на вопросе $index');
+      debugPrint('[LOG] ✅ Количество кнопок и вариантов совпадает (${_cardKeys.length})');
     }
 
     return Scaffold(
       body: Stack(
         children: [
-          Positioned.fill(
-            child: _buildImageWithErrorHandling(q.background, isBackground: true),
-          ),
+          Positioned.fill(child: _buildImageWithErrorHandling(q.background, isBackground: true)),
           Container(color: Colors.black.withOpacity(0.35)),
           SafeArea(
             child: Column(
@@ -658,27 +638,19 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                     children: [
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.95),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: Text('${index + 1}/${widget.questions.length}',
-                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
+                        decoration: BoxDecoration(color: Colors.white.withOpacity(0.95), borderRadius: BorderRadius.circular(16)),
+                        child: Text('${index + 1}/${widget.questions.length}', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14)),
                       ),
                       Container(
                         key: _scoreKey,
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(16),
-                        ),
+                        decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(16)),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             const Icon(Icons.star, color: Colors.orange, size: 18),
                             const SizedBox(width: 4),
-                            Text(score.toString(),
-                                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                            Text(score.toString(), style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                           ],
                         ),
                       ),
@@ -700,13 +672,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                 key: _cardKeys[i],
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(24),
-                                  border: Border.all(
-                                    color: _getBorderColor(i),
-                                    width: 5.0,
-                                  ),
-                                  boxShadow: const [
-                                    BoxShadow(color: Colors.black54, blurRadius: 12, offset: Offset(0, 6))
-                                  ],
+                                  border: Border.all(color: _getBorderColor(i), width: 5.0),
+                                  boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 12, offset: Offset(0, 6))],
                                 ),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(24),
@@ -730,9 +697,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.97),
                     borderRadius: BorderRadius.circular(20),
-                    boxShadow: const [
-                      BoxShadow(color: Colors.black38, blurRadius: 8, offset: Offset(0, 3))
-                    ],
+                    boxShadow: const [BoxShadow(color: Colors.black38, blurRadius: 8, offset: Offset(0, 3))],
                   ),
                   child: Text(
                     q.question,
