@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   shared_preferences: 2.3.2
   yandex_mobileads: ^7.17.0
+  audioplayers: ^5.2.1
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:
@@ -23,3 +25,4 @@ flutter:
   assets:
     - assets/questions.json
     - assets/images/
+    - assets/sounds/
