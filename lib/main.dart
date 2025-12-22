@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yandex_mobileads/mobile_ads.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -165,6 +165,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
   final Set<int> _firstAttemptedQuestions = {};
 
+  StreamSubscription? _connectivitySubscription;
+
   @override
   void initState() {
     super.initState();
@@ -174,7 +176,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     final optionCount = widget.questions.isNotEmpty ? widget.questions.first.options.length : 3;
     _cardKeys = List.generate(optionCount, (_) => GlobalKey());
 
-    _checkInternetConnection();
     _audioPlayer = AudioPlayer();
     _adLoader = _createInterstitialAdLoader();
     _loadInterstitialAd();
@@ -193,12 +194,22 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         _starController.reset();
       }
     });
+
+    _connectivitySubscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+      _hasInternet = result != ConnectivityResult.none;
+      if (mounted) setState(() {});
+      if (_hasInternet) {
+        _loadInterstitialAd();
+      }
+    });
+
+    _checkInternetConnection();
   }
 
   Future<bool> _checkInternetConnection() async {
     try {
-      final result = await InternetAddress.lookup('8.8.8.8').timeout(const Duration(seconds: 3));
-      _hasInternet = result.isNotEmpty;
+      final result = await Connectivity().checkConnectivity();
+      _hasInternet = result != ConnectivityResult.none;
     } catch (_) {
       _hasInternet = false;
     }
@@ -209,6 +220,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   @override
   void dispose() {
     debugPrint('[LOG] dispose вызван');
+    _connectivitySubscription?.cancel();
     _starController.dispose();
     _audioPlayer.dispose();
     _ad?.destroy();
@@ -227,6 +239,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     );
   }
 
+  // 🔁 Попытка загрузки рекламы (без исключений)
   Future<void> _loadInterstitialAd() async {
     if (!_hasInternet) {
       debugPrint('[LOG] ❌ Нет интернета — реклама не загружена');
@@ -244,14 +257,43 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     }
   }
 
-  Future<void> _showInterstitial() async {
-    if (!_hasInternet) {
-      debugPrint('[LOG] ❌ Нет интернета — реклама невозможна. Игра заблокирована.');
-      return;
+  // 🔁 Проверяем и при необходимости перезагружаем рекламу
+  Future<bool> _ensureAdIsLoaded() async {
+    if (_ad != null) return true;
+
+    debugPrint('[LOG] Реклама не загружена. Пробуем загрузить...');
+    await _loadInterstitialAd();
+
+    // Ждём немного, вдруг загрузится
+    if (_ad == null) {
+      await Future.delayed(const Duration(milliseconds: 800));
     }
 
     if (_ad == null) {
-      debugPrint('[LOG] ❌ Реклама не загружена. Игра заблокирована.');
+      debugPrint('[LOG] ❌ Реклама не загрузилась даже после повторной попытки');
+      return false;
+    }
+    return true;
+  }
+
+  Future<void> _showInterstitial() async {
+    if (!_hasInternet) {
+      debugPrint('[LOG] ❌ Нет интернета — реклама невозможна.');
+      _isProcessing = false;
+      if (mounted) setState(() {});
+      return;
+    }
+
+    final adAvailable = await _ensureAdIsLoaded();
+    if (!adAvailable) {
+      debugPrint('[LOG] Реклама недоступна. Продолжаем игру.');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Реклама временно недоступна. Продолжаем игру.')),
+        );
+      }
+      _isProcessing = false;
+      if (mounted) setState(() {});
       return;
     }
 
@@ -293,8 +335,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       });
       debugPrint('[LOG] Реклама завершена — игра разблокирована');
     } else {
-      debugPrint('[LOG] Реклама НЕ завершена — игра остаётся заблокированной');
-      // Оставляем _isProcessing = true навсегда
+      debugPrint('[LOG] Реклама НЕ завершена — продолжаем без блокировки');
+      _isProcessing = false;
+      if (mounted) setState(() {});
     }
   }
 
@@ -302,7 +345,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     _adIsShowing = false;
     _ad?.destroy();
     _ad = null;
-    // Не перезагружаем рекламу автоматически
+    // Загружаем следующую заранее
+    if (_hasInternet) {
+      _loadInterstitialAd();
+    }
   }
 
   Future<void> _saveProgress() async {
@@ -344,7 +390,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   void answer(int selected) async {
-    // 🔥 КРИТИЧЕСКАЯ ПРОВЕРКА: актуальный статус интернета СЕЙЧАС
     final hasInternetNow = await _checkInternetConnection();
     if (!hasInternetNow) {
       if (mounted) {
@@ -549,7 +594,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     );
   }
 
-  // 🔥 НОВЫЙ МЕТОД: экран без интернета
   Widget _buildNoInternetScreen() {
     return Scaffold(
       body: Center(
@@ -578,7 +622,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    // 🔥 КЛЮЧЕВАЯ ПРОВЕРКА: каждый раз при перестроении — проверяем интернет
     if (!_hasInternet) {
       return _buildNoInternetScreen();
     }
@@ -589,11 +632,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       });
       return const Scaffold(body: SizedBox());
     }
-
-    // Дополнительно: обновляем статус интернета, если есть сомнения
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _checkInternetConnection();
-    });
 
     if (_cardKeys.length != widget.questions[index].options.length) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
