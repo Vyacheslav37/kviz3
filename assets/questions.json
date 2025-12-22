@@ -200,14 +200,14 @@
     "correctIndex": 2
   },
   {
-    "question": "Что образуется, когда смешать уксус и соду?",
+    "question": "Что образуется, если смешать уксус и соду?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/21_1.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/21_2.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/21_3.webp"
     ],
-    "correctIndex": 1
+    "correctIndex": 2
   },
   {
     "question": "Какой фрукт ассоциируется с завтраком у миллионов мам?",
@@ -217,7 +217,7 @@
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/22_2.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/22_3.webp"
     ],
-    "correctIndex": 1
+    "correctIndex": 0
   },
   {
     "question": "Какой газ выделяет дрожжевое тесто?",
@@ -227,10 +227,10 @@
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/23_2.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/23_3.webp"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
-    "question": "Какой напиток муж считает «вредным», но сам пьёт литрами?",
+    "question": "Какой напиток считается «вредным», но пьют литрами?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/24_1.webp",
@@ -240,7 +240,7 @@
     "correctIndex": 0
   },
   {
-    "question": "Что делает кот, увидев огурец на полу?",
+    "question": "Что делает кот, увидев огурец?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/25_1.webp",
@@ -250,7 +250,7 @@
     "correctIndex": 2
   },
   {
-    "question": "Как выглядит тарелка для ребёнка?",
+    "question": "Тарелка для ребёнка?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/26_1.webp",
@@ -277,17 +277,17 @@
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/28_2.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/28_3.webp"
     ],
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
-    "question": "Какой предмет муж считает сложным, как космический корабль?",
+    "question": "Какой предмет мужчина считает сложным, как космический корабль?",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/29_1.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/29_2.webp",
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/29_3.webp"
     ],
-    "correctIndex": 1
+    "correctIndex": 0
   },
   {
     "question": "Какой цвет у классической пачки макарон «Макфа»?",
@@ -360,7 +360,7 @@
     "correctIndex": 2
   },
   {
-    "question": "Какой зверь чистит себя так же, как люди моют руки?",
+    "question": "Какой зверь моет руки так же, как люди",
     "background": "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/bg_quiz.webp",
     "options": [
       "https://raw.githubusercontent.com/Vyacheslav37/quiz-images/main/images/37_1.webp",

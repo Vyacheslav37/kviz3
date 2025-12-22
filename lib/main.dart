@@ -502,7 +502,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               children: [
                 FilledButton.icon(
                   onPressed: () async {
-                    const appId = 'ru.example.tap_quiz'; // ← ЗАМЕНИТЕ НА СВОЙ!
+                    const appId = 'ru.smekho.tap_quiz'; // ← ЗАМЕНИТЕ НА СВОЙ!
                     final uri = Uri.parse('rustore://details?id=$appId');
                     try {
                       await launchUrl(uri);
@@ -632,7 +632,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                  padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 1),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -643,7 +643,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       ),
                       Container(
                         key: _scoreKey,
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                         decoration: BoxDecoration(color: Colors.amber, borderRadius: BorderRadius.circular(16)),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -660,7 +660,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 const SizedBox(height: 0),
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: Row(
                       children: List.generate(_cardKeys.length, (i) {
                         return Expanded(
@@ -693,7 +693,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 const SizedBox(height: 0),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 16),
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.97),
                     borderRadius: BorderRadius.circular(20),
