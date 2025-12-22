@@ -1,4 +1,4 @@
-package com.example.tap_quiz
+package ru.smekho.tap_quiz
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -231,7 +231,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       final loader = await _adLoader;
       await loader.loadAd(
         adRequestConfiguration: const AdRequestConfiguration(
-          adUnitId: 'demo-interstitial-yandex',
+          adUnitId: 'R-M-18100341-1',
         ),
       );
     } catch (e) {
