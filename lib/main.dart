@@ -161,7 +161,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   late Animation<Offset> _starAnimation;
 
   late AudioPlayer _audioPlayer;
-  bool _isSoundPlaying = false; // ← ДОБАВЛЕНО: защита от задвоения
+  bool _isSoundPlaying = false;
 
   final Set<int> _firstAttemptedQuestions = {};
 
@@ -195,7 +195,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     });
   }
 
-  Future<void> _checkInternetConnection() async {
+  Future<bool> _checkInternetConnection() async {
     try {
       final result = await InternetAddress.lookup('8.8.8.8').timeout(const Duration(seconds: 3));
       _hasInternet = result.isNotEmpty;
@@ -203,6 +203,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       _hasInternet = false;
     }
     if (mounted) setState(() {});
+    return _hasInternet;
   }
 
   @override
@@ -227,6 +228,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   Future<void> _loadInterstitialAd() async {
+    if (!_hasInternet) {
+      debugPrint('[LOG] ❌ Нет интернета — реклама не загружена');
+      return;
+    }
     try {
       final loader = await _adLoader;
       await loader.loadAd(
@@ -240,10 +245,22 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   Future<void> _showInterstitial() async {
-    if (_ad == null || _adIsShowing) return;
+    if (!_hasInternet) {
+      debugPrint('[LOG] ❌ Нет интернета — реклама невозможна. Игра заблокирована.');
+      return;
+    }
+
+    if (_ad == null) {
+      debugPrint('[LOG] ❌ Реклама не загружена. Игра заблокирована.');
+      return;
+    }
+
+    if (_adIsShowing) return;
 
     _adIsShowing = true;
     if (mounted) setState(() {});
+
+    bool adCompleted = false;
 
     _ad!.setAdEventListener(
       eventListener: InterstitialAdEventListener(
@@ -255,6 +272,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         onAdDismissed: () {
           debugPrint('Реклама закрыта');
           _onAdClosed();
+          adCompleted = true;
         },
         onAdClicked: () => debugPrint('Клик по рекламе'),
         onAdImpression: (_) => debugPrint('Impression'),
@@ -266,27 +284,25 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       await _ad!.waitForDismiss();
     } catch (e) {
       debugPrint('Ошибка показа рекламы: $e');
-    } finally {
       _onAdClosed();
+    }
+
+    if (adCompleted && mounted) {
+      setState(() {
+        _isProcessing = false;
+      });
+      debugPrint('[LOG] Реклама завершена — игра разблокирована');
+    } else {
+      debugPrint('[LOG] Реклама НЕ завершена — игра остаётся заблокированной');
+      // Оставляем _isProcessing = true навсегда
     }
   }
 
   void _onAdClosed() {
-    if (!_adIsShowing) return;
     _adIsShowing = false;
     _ad?.destroy();
     _ad = null;
-    _loadInterstitialAd();
-
-    if (mounted) {
-      setState(() {
-        _isProcessing = false;
-      });
-      debugPrint('[LOG] Реклама закрыта, _isProcessing=false (setState)');
-    } else {
-      _isProcessing = false;
-      debugPrint('[LOG] Реклама закрыта, _isProcessing=false (mounted=false)');
-    }
+    // Не перезагружаем рекламу автоматически
   }
 
   Future<void> _saveProgress() async {
@@ -296,7 +312,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     debugPrint('[LOG] Прогресс сохранён: index=$index, score=$score');
   }
 
-  // 🔥 ИСПРАВЛЕНО: защита от задвоения звука
   Future<void> _playSound(String asset) async {
     if (_isSoundPlaying) {
       debugPrint('[LOG] Звук уже играет — пропускаем $asset');
@@ -309,7 +324,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     try {
       await _audioPlayer.stop();
       await _audioPlayer.play(AssetSource(asset));
-      // Оба звука длятся ~1 секунду — ждём 1100 мс для надёжности
       await Future.delayed(const Duration(milliseconds: 1100));
     } catch (e) {
       debugPrint('[LOG] Ошибка проигрывания $asset: $e');
@@ -330,17 +344,22 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
   }
 
   void answer(int selected) async {
-    final currentOptionsCount = widget.questions[index].options.length;
-    debugPrint('[LOG] 🔘 Тап по кнопке $selected (всего вариантов: $currentOptionsCount) на вопросе $index');
+    // 🔥 КРИТИЧЕСКАЯ ПРОВЕРКА: актуальный статус интернета СЕЙЧАС
+    final hasInternetNow = await _checkInternetConnection();
+    if (!hasInternetNow) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Нет интернета. Игра невозможна.')),
+        );
+      }
+      return;
+    }
 
+    final currentOptionsCount = widget.questions[index].options.length;
     if (selected < 0 || selected >= currentOptionsCount) {
       debugPrint('[LOG] ❌ ИГНОРИРУЕМ: индекс $selected вне диапазона [0, $currentOptionsCount)');
       return;
     }
-
-    debugPrint('\n[LOG] === НАЧАЛО answer($selected) ===');
-    debugPrint('[LOG] Состояние: _isProcessing=$_isProcessing, _adIsShowing=$_adIsShowing, mounted=$mounted');
-    debugPrint('[LOG] Текущий вопрос: $index, selectedOption=$selectedOption');
 
     if (_isProcessing || _adIsShowing) {
       debugPrint('[LOG] БЛОКИРОВАНО: _isProcessing=$_isProcessing или реклама показывается');
@@ -350,17 +369,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     final correct = widget.questions[index].correctIndex;
     final isFirstAttempt = !_firstAttemptedQuestions.contains(index);
     _firstAttemptedQuestions.add(index);
-    debugPrint('[LOG] Это первая попытка на вопрос $index: $isFirstAttempt');
 
     _isProcessing = true;
-    debugPrint('[LOG] Установлено _isProcessing = true');
-
     if (mounted) {
       setState(() => selectedOption = selected);
-      debugPrint('[LOG] setState выполнен (mounted=true)');
     } else {
       selectedOption = selected;
-      debugPrint('[LOG] setState пропущен (mounted=false)');
     }
 
     if (selected == correct) {
@@ -369,9 +383,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         score++;
         _startStarAnimation(selected);
         await _saveProgress();
-        debugPrint('[LOG] Звезда начислена! Новый счёт: $score');
-      } else {
-        debugPrint('[LOG] Верный ответ, но не с первой попытки — звезда НЕ начислена');
       }
 
       await _playSound('sounds/correct.wav');
@@ -380,7 +391,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       if (index + 1 >= widget.questions.length) {
         _showCompletionDialog();
         _isProcessing = false;
-        debugPrint('[LOG] Квиз завершён — последний вопрос');
       } else {
         if (mounted) {
           setState(() {
@@ -388,24 +398,20 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             selectedOption = null;
             _updateCardKeysForCurrentQuestion();
           });
-          debugPrint('[LOG] Переход к вопросу $index (setState)');
         } else {
           index++;
           selectedOption = null;
-          debugPrint('[LOG] Переход к вопросу $index (mounted=false)');
         }
         await _saveProgress();
 
         if (index % 5 == 0) {
-          debugPrint('[LOG] Планируется показ рекламы после вопроса $index');
+          debugPrint('[LOG] ОБЯЗАТЕЛЬНАЯ РЕКЛАМА после вопроса $index');
           await _showInterstitial();
         } else {
           if (mounted) {
             setState(() => _isProcessing = false);
-            debugPrint('[LOG] _isProcessing = false (setState, без рекламы)');
           } else {
             _isProcessing = false;
-            debugPrint('[LOG] _isProcessing = false (mounted=false, без рекламы)');
           }
         }
       }
@@ -419,41 +425,23 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           selectedOption = null;
           _isProcessing = false;
         });
-        debugPrint('[LOG] _isProcessing = false после ошибки (setState)');
       } else {
         selectedOption = null;
         _isProcessing = false;
-        debugPrint('[LOG] _isProcessing = false после ошибки (mounted=false)');
       }
     }
-
-    debugPrint('[LOG] === КОНЕЦ answer($selected) ===\n');
   }
 
   void _startStarAnimation(int cardIndex) {
-    if (_showStar || _starController.isAnimating) {
-      debugPrint('[LOG] Анимация звезды пропущена: уже запущена');
-      return;
-    }
-
-    if (cardIndex >= _cardKeys.length) {
-      debugPrint('[LOG] Анимация звезды отменена: cardIndex вне диапазона');
-      return;
-    }
+    if (_showStar || _starController.isAnimating || cardIndex >= _cardKeys.length) return;
 
     final cardContext = _cardKeys[cardIndex].currentContext;
     final scoreContext = _scoreKey.currentContext;
-    if (cardContext == null || scoreContext == null) {
-      debugPrint('[LOG] Анимация звезды отменена: контексты null');
-      return;
-    }
+    if (cardContext == null || scoreContext == null) return;
 
     final cardBox = cardContext.findRenderObject() as RenderBox?;
     final scoreBox = scoreContext.findRenderObject() as RenderBox?;
-    if (cardBox == null || scoreBox == null) {
-      debugPrint('[LOG] Анимация звезды отменена: RenderBox null');
-      return;
-    }
+    if (cardBox == null || scoreBox == null) return;
 
     final start = cardBox.localToGlobal(cardBox.size.center(Offset.zero));
     final end = scoreBox.localToGlobal(scoreBox.size.center(Offset.zero));
@@ -468,9 +456,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         );
       });
       _starController.forward();
-      debugPrint('[LOG] Анимация звезды запущена от $start к $end');
-    } else {
-      debugPrint('[LOG] Анимация звезды не запущена: mounted=false');
     }
   }
 
@@ -502,7 +487,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               children: [
                 FilledButton.icon(
                   onPressed: () async {
-                    const appId = 'ru.smekho.tap_quiz'; // ← ЗАМЕНИТЕ НА СВОЙ!
+                    const appId = 'ru.smekho.tap_quiz';
                     final uri = Uri.parse('rustore://details?id=$appId');
                     try {
                       await launchUrl(uri);
@@ -512,7 +497,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           const SnackBar(content: Text('RuStore не найден. Пожалуйста, установите его.')),
                         );
                       }
-                      debugPrint('[LOG] Не удалось открыть RuStore: $e');
                     }
                   },
                   icon: const Icon(Icons.star_rate_outlined),
@@ -521,7 +505,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 const SizedBox(height: 12),
                 FilledButton(
                   onPressed: () async {
-                    debugPrint('[LOG] Нажата кнопка "Играть снова"');
                     final prefs = await SharedPreferences.getInstance();
                     await prefs.remove('quiz_index');
                     await prefs.remove('quiz_score');
@@ -551,19 +534,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     return Colors.transparent;
   }
 
-  Widget _buildImageWithErrorHandling(String url, {bool isBackground = false}) {
-    return Image.network(
-      url,
+  Widget _buildImageWithErrorHandling(String assetPath, {bool isBackground = false}) {
+    return Image.asset(
+      assetPath,
       fit: BoxFit.cover,
-      loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress == null) return child;
-        return Container(
-          color: isBackground ? Colors.black : Colors.grey[300],
-          child: const Center(child: CircularProgressIndicator(color: Colors.white)),
-        );
-      },
       errorBuilder: (context, error, stackTrace) {
-        debugPrint('[LOG] ❌ ОШИБКА ЗАГРУЗКИ ИЗОБРАЖЕНИЯ: $url');
+        debugPrint('[LOG] ❌ ОШИБКА ЗАГРУЗКИ АССЕТА: $assetPath');
         return Container(
           color: isBackground ? Colors.grey[800] : Colors.grey[600],
           alignment: Alignment.center,
@@ -573,60 +549,62 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     );
   }
 
+  // 🔥 НОВЫЙ МЕТОД: экран без интернета
+  Widget _buildNoInternetScreen() {
+    return Scaffold(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.wifi_off, size: 64, color: Colors.grey),
+              const SizedBox(height: 16),
+              const Text('Нет подключения к интернету', textAlign: TextAlign.center, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 2),
+              const Text('Игра невозможна без интернета.', textAlign: TextAlign.center, style: TextStyle(color: Colors.grey)),
+              const SizedBox(height: 24),
+              FilledButton.icon(
+                onPressed: () => SystemNavigator.pop(),
+                icon: const Icon(Icons.exit_to_app),
+                label: const Text('Выйти'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    // 🔥 КЛЮЧЕВАЯ ПРОВЕРКА: каждый раз при перестроении — проверяем интернет
+    if (!_hasInternet) {
+      return _buildNoInternetScreen();
+    }
+
     if (index >= widget.questions.length) {
-      debugPrint('[LOG] Индекс вышел за границы — показ завершения');
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted && !_isProcessing) _showCompletionDialog();
       });
       return const Scaffold(body: SizedBox());
     }
 
-    debugPrint('[LOG] build вызван, вопрос: $index');
-    final q = widget.questions[index];
+    // Дополнительно: обновляем статус интернета, если есть сомнения
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _checkInternetConnection();
+    });
 
-    debugPrint('[LOG] 🛑 Состояние блокировки на вопросе $index: _isProcessing=$_isProcessing, mounted=$mounted');
-
-    if (!_hasInternet) {
-      return Scaffold(
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Icon(Icons.wifi_off, size: 64, color: Colors.grey),
-                const SizedBox(height: 16),
-                const Text('Нет подключения к интернету', textAlign: TextAlign.center, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 2),
-                const Text('Проверьте соединение и перезапустите приложение', textAlign: TextAlign.center, style: TextStyle(color: Colors.grey)),
-                const SizedBox(height: 24),
-                FilledButton.icon(
-                  onPressed: () => SystemNavigator.pop(),
-                  icon: const Icon(Icons.refresh),
-                  label: const Text('Перезапустить'),
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-    }
-
-    if (_cardKeys.length != q.options.length) {
-      debugPrint('[LOG] ⚠️ НЕСОВПАДЕНИЕ: _cardKeys.length=${_cardKeys.length}, q.options.length=${q.options.length}');
+    if (_cardKeys.length != widget.questions[index].options.length) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) setState(() => _updateCardKeysForCurrentQuestion());
       });
-    } else {
-      debugPrint('[LOG] ✅ Количество кнопок и вариантов совпадает (${_cardKeys.length})');
     }
 
     return Scaffold(
       body: Stack(
         children: [
-          Positioned.fill(child: _buildImageWithErrorHandling(q.background, isBackground: true)),
+          Positioned.fill(child: _buildImageWithErrorHandling(widget.questions[index].background, isBackground: true)),
           Container(color: Colors.black.withOpacity(0.35)),
           SafeArea(
             child: Column(
@@ -679,7 +657,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                                   borderRadius: BorderRadius.circular(24),
                                   child: AspectRatio(
                                     aspectRatio: 1.0,
-                                    child: _buildImageWithErrorHandling(q.options[i]),
+                                    child: _buildImageWithErrorHandling(widget.questions[index].options[i]),
                                   ),
                                 ),
                               ),
@@ -700,7 +678,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                     boxShadow: const [BoxShadow(color: Colors.black38, blurRadius: 8, offset: Offset(0, 3))],
                   ),
                   child: Text(
-                    q.question,
+                    widget.questions[index].question,
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, height: 1.3),
                   ),
